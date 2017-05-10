@@ -44,13 +44,27 @@ else
 		// Put player UIDs here
 	];
 
+	serverDonors = compileFinal str
+	[
+		//put donors UIDs here
+	];
+
+	topServerDonors = compileFinal str
+	[
+		//put donors UIDs here
+	];
+
 	/********************************************************/
 };
 
 if (typeName lowAdmins == "ARRAY") then { lowAdmins = compileFinal str lowAdmins };
 if (typeName highAdmins == "ARRAY") then { highAdmins = compileFinal str highAdmins };
 if (typeName serverOwners == "ARRAY") then { serverOwners = compileFinal str serverOwners };
+if (typeName serverDonors == "ARRAY") then { serverDonors = compileFinal str serverDonors };
+if (typeName topServerDonors == "ARRAY") then { topServerDonors = compileFinal str topServerDonors };
 
 publicVariable "lowAdmins";
 publicVariable "highAdmins";
 publicVariable "serverOwners";
+publicVariable "serverDonors";
+publicVariable "topServerDonors";

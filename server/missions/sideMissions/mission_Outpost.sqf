@@ -9,7 +9,7 @@
 if (!isServer) exitwith {};
 #include "sideMissionDefines.sqf";
 
-private ["_nbUnits", "_outpost", "_objects"];
+private ["_baseToDelete", "_nbUnits", "_outpost", "_objects"];
 
 _setupVars =
 {
@@ -22,13 +22,22 @@ _setupObjects =
 {
 	_missionPos = markerPos _missionLocation;
 
+	//delete existing base parts and vehicles at location
+	_baseToDelete = nearestObjects [_missionPos, ["ALL"], 25] select {_x getVariable ["ownerUID", ""] == ""};
+	{
+		if (count crew _x == 0) then
+		{
+			deleteVehicle _x; 
+		};
+	} forEach _baseToDelete;
+
 	_outpost = (call compile preprocessFileLineNumbers "server\missions\outposts\outpostsList.sqf") call BIS_fnc_selectRandom;
 	_objects = [_outpost, _missionPos, 0] call createOutpost;
 
 	_aiGroup = createGroup CIVILIAN;
 	[_aiGroup, _missionPos, _nbUnits, 5] call createCustomGroup;
 
-	_missionHintText = format ["An armed <t color='%1'>outpost</t> containing weapon crates has been spotted near the marker, go capture it!", sideMissionColor]
+	_missionHintText = format ["An armed <t color='%1'>outpost</t> containing weapon crates has been spotted near the marker. Clear the area and collect the crates!", sideMissionColor]
 };
 
 _waitUntilMarkerPos = nil;
@@ -45,9 +54,10 @@ _successExec =
 {
 	// Mission complete
 	{ _x setVariable ["R3F_LOG_disabled", false, true] } forEach _objects;
+	{ deleteVehicle _x} forEach (_objects select {!((typeOf _x) in ["Box_East_WpsSpecial_F","Box_IND_WpsSpecial_F"])});
 	[_locationsArray, _missionLocation, _objects] call setLocationObjects;
 
-	_successHintMessage = "The outpost has been captured, good work.";
+	_successHintMessage = "The outpost has been cleared. Good work.";
 };
 
 _this call sideMissionProcessor;

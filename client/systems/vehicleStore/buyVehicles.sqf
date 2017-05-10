@@ -49,6 +49,15 @@ storePurchaseHandle = _this spawn
 	_colorText = _colorlist lbText _colorIndex;
 	_colorData = call compile (_colorlist lbData _colorIndex);
 
+	//Error for non donators selecting donor items
+	_showInsufficientDonatorError =
+	{
+		_itemText = _this select 0;
+		hint parseText format ["<t color='#ffff00'>Purchase of custom vehicle paint available only for community support members.</t><br/>Purchase ""%1"" without custom vehicle paint.", _itemText];
+		playSound "FD_CP_Not_Clear_F";
+		_price = -1;
+	};
+
 	_showInsufficientFundsError =
 	{
 		_itemText = _this select 0;
@@ -109,7 +118,19 @@ storePurchaseHandle = _this spawn
 				};
 			};
 
-			player connectTerminalToUav _vehicle;
+			_vehicle spawn
+			{
+				params ["_uav"];
+				private "_crewActive";
+				_time = time;
+
+				waitUntil {time - _time > 30 || {_crewActive = alive _uav && !(crew _uav isEqualTo []); _crewActive}};
+
+				if (_crewActive) then
+				{
+					player connectTerminalToUav _uav;
+				};
+			};
 		};
 
 		_vehicle
@@ -124,6 +145,12 @@ storePurchaseHandle = _this spawn
 			if (_price > _playerMoney) exitWith
 			{
 				[_itemText] call _showInsufficientFundsError;
+			};
+			
+			//Check donor status
+			if (!((getPlayerUID player) call isdonor) && (!isNil "_colorData")) exitWith
+			{
+				[_itemText] call _showInsufficientDonatorError;
 			};
 
 			_requestKey = call A3W_fnc_generateKey;
@@ -155,6 +182,7 @@ storePurchaseHandle = _this spawn
 		else
 		{
 			vehicleStore_lastPurchaseTime = diag_tickTime;
+			vehicleStore_lastSellTime = diag_tickTime;
 
 			player setVariable ["cmoney", _playerMoney - _price, true];
 			_playerMoneyText ctrlSetText format ["Cash: $%1", [player getVariable ["cmoney", 0]] call fn_numbersText];

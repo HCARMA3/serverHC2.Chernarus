@@ -9,45 +9,64 @@ if (!isServer) exitWith {};
 MainMissions =
 [
 	// Mission filename, weight
-	["mission_ArmedDiversquad", 1],
-	["mission_Coastal_Convoy", 1],
+	["mission_ArmedDiversquad", 0.1],
+	["mission_Coastal_Convoy", 0.1],
 	["mission_Convoy", 1],
-	["mission_HostileHeliFormation", 0.5],
+	["mission_HostileHeliFormation", 0.1],
 	["mission_APC", 1],
-	["mission_MBT", 1],
 	["mission_LightArmVeh", 1],
 	["mission_ArmedHeli", 1],
-	["mission_CivHeli", 1]
+	["mission_CivHeli", 1],
+	["mission_Smugglers", 1]
 ];
 
 SideMissions =
 [
-	["mission_HostileHelicopter", 0.5],
+	["mission_HostileHelicopter", 0.1],
 	["mission_MiniConvoy", 1],
-	["mission_SunkenSupplies", 1],
-	["mission_TownInvasion", 2],
-	["mission_Outpost", 3],
-	["mission_Truck", 1]
+	["mission_SunkenSupplies", 0.1],
+	["mission_AirWreck", 1],
+	["mission_Outpost", 1],
+	["mission_Truck", 0.5],
+	["mission_GeoCache", 0.1],
+	["mission_HostageRescue", 1],
+	["mission_Occupation", 0.7],
+	["mission_Sniper", 0.7]
 ];
 
 MoneyMissions =
 [
-	["mission_MoneyShipment", 1],
-	["mission_SunkenTreasure", 1]
+	["mission_MoneyShipment", 0.6],
+	["mission_SunkenTreasure", 0.2],
+	["mission_drugsRunners", 0.5],
+	["mission_Roadblock", 0.6],
+	["mission_TownInvasion", 1]
+];
+
+missionType_water =
+[
+	"mission_ArmedDiversquad",
+	"mission_Coastal_Convoy",
+	"mission_SunkenSupplies",
+	"mission_SunkenTreasure"
 ];
 
 MissionSpawnMarkers = (allMapMarkers select {["Mission_", _x] call fn_startsWith}) apply {[_x, false]};
-ForestMissionMarkers = (allMapMarkers select {["ForestMission_", _x] call fn_startsWith}) apply {[_x, false]};
+//ForestMissionMarkers = (allMapMarkers select {["ForestMission_", _x] call fn_startsWith}) apply {[_x, false]};
 SunkenMissionMarkers = (allMapMarkers select {["SunkenMission_", _x] call fn_startsWith}) apply {[_x, false]};
+RoadblockMissionMarkers = (allMapMarkers select {["Roadblock_", _x] call fn_startsWith}) apply {[_x, false]};
+SniperMissionMarkers = (allMapMarkers select {["Sniper_", _x] call fn_startsWith}) apply {[_x, false]};
+OccupationMissionMarkers = (allMapMarkers select {["Occupation_", _x] call fn_startsWith}) apply {[_x, false]};
 
-if !(ForestMissionMarkers isEqualTo []) then
+/*if !(ForestMissionMarkers isEqualTo []) then
 {
 	SideMissions append
 	[
-		["mission_AirWreck", 3],
-		["mission_WepCache", 3]
+	["mission_AirWreck", 3],
+	["mission_Occupation", 2],
+	["mission_Sniper", 1]
 	];
-};
+};*/
 
 LandConvoyPaths = (call compile preprocessFileLineNumbers "mapConfig\convoys\landConvoysList.sqf") apply {[_x, false]};
 CoastalConvoyPaths = (call compile preprocessFileLineNumbers "mapConfig\convoys\coastalConvoysList.sqf") apply {[_x, false]};

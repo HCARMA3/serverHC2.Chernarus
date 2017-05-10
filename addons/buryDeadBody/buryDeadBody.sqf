@@ -62,8 +62,8 @@
 	----------------------------------------------------------------------------------------------
 */
 
-_price = 100;
-_duration = (round (random 30)) + 15;
+_price = 500;
+_duration = 25;
 _animation = "AinvPknlMstpSlayWrflDnon_medic";
 
 _cleanUpObjects = [
@@ -85,10 +85,10 @@ _maxObjectDistanceGather = 3; // max distance from dead body to gather and delet
 	------------------------------------------------------------------------------------------	*/
 
 #define FORMAT1(STR1,STR2) format ["%1 %2", STR1, STR2]
-#define ERR_FAILED "Burying Dead Body Failed!"
-#define ERR_IN_VEHICLE "You Can't Bury A Dead Body Whilst In A Vehicle."
-#define ERR_ALIVE "This Is No Dead Body!"
-#define ERR_CANCELLED "Burying Dead Body Cancelled!"
+#define ERR_FAILED "Burying dead body failed!"
+#define ERR_IN_VEHICLE "You can't bury a dead body whilst in a vehicle."
+#define ERR_ALIVE "This is no dead body!"
+#define ERR_CANCELLED "Burying dead body cancelled!"
 
 private _deadBody = ([allDeadMen,[],{player distance _x},"ASCEND",{(player distance _x) < 2}] call BIS_fnc_sortBy) select 0;
 
@@ -99,10 +99,10 @@ if ((typeName _price != "SCALAR") || (typeName _duration != "SCALAR")) exitWith 
 _deadBodyBuried = (_deadBody getVariable ["buryDeadBodyBurried",nil]);
 if (!isNil "_deadBodyBuried") exitWith
 {
-	["Dead Body Is Already Successfully Burried!", 5] call mf_notify_client;
+	["Dead body is already successfully buried!", 5] call mf_notify_client;
 };
 
-_durationStatic = (_deadBody getVariable ["buryDeadBodyDuration",nil]);
+/*_durationStatic = (_deadBody getVariable ["buryDeadBodyDuration",nil]);
 if (!isNil "_durationStatic") then
 {
 	_duration = _durationStatic;
@@ -110,18 +110,18 @@ if (!isNil "_durationStatic") then
 else
 {
 	_deadBody setVariable ["buryDeadBodyDuration",_duration,true];
-};
+};*/
 
 _playerCMoney = player getVariable ["cmoney",0];
 uiSleep 0.1;
 
 if (_playerCMoney < _price) exitWith
 {
-	_text = format ["Burying A Dead Body Costs $%1, You Do Not Have Enough Carried Money!",_price];
+	_text = format ["Burying a dead body costs $%1, you do not have enough carried money!",_price];
 	[_text, 5] call mf_notify_client;
 };
 
-_text = format ["\n\n\nBurying A Dead Body Will Cost You $%1, You Can Cancel At Anytime Before It Reaches 100%2 Complete!",_price,"%"];
+_text = format ["\n\n\nBurying a dead body will cost you $%1. You can cancel at any time before it reaches 100%2 complete!",_price,"%"];
 [_text, _duration] call mf_notify_client;
 
 private _checks =
@@ -137,7 +137,7 @@ private _checks =
 		case (doCancelAction): { _text = ERR_CANCELLED; doCancelAction = false; };
 		default
 		{
-			_text = format ["Burying Dead Body... %1%2 Complete",round(100 * _progress),"%"];
+			_text = format ["Burying dead body... %1%2 Complete",round(100 * _progress),"%"];
 			_failed = false;
 		};
 	};
@@ -167,14 +167,14 @@ if (_outcome) then
 	};
 	if (!isNull _deadBody) then
 	{
-		["Someone Dug Up The Dead Body, You Get A Refund!", 5] call mf_notify_client;
+		["Someone dug up the dead body, you get a refund!", 5] call mf_notify_client;
 		_deadBody setVariable ["buryDeadBodyBurried",nil,true];
 		uiSleep 0.5;
 		player setVariable ["cmoney",(_playerCMoney + _price),true];
 	}
 	else
 	{
-		["Burying Of Dead Body Successful!", 5] call mf_notify_client;
+		["Burying of dead body successful!", 5] call mf_notify_client;
 	};
 };
 

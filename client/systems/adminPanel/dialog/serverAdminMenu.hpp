@@ -39,7 +39,7 @@ class ServerAdminMenu
 		class ServerAdminMenu_Title:w_RscText
 		{
 			idc=-1;
-			text="Admin Menu";
+			text="Rocha Admin Menu";
 			x=0.29;
 			y=0.108;
 			w=0.088;

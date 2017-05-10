@@ -10,7 +10,6 @@
 if (!isNil "storePurchaseHandle" && {typeName storePurchaseHandle == "SCRIPT"} && {!scriptDone storePurchaseHandle}) exitWith {hint "Please wait, your previous purchase is being processed"};
 
 #include "dialog\gunstoreDefines.sqf";
-//#include "addons\proving_ground\defs.hpp"
 #define GET_DISPLAY (findDisplay balca_debug_VC_IDD)
 #define GET_CTRL(a) (GET_DISPLAY displayCtrl ##a)
 #define GET_SELECTED_DATA(a) ([##a] call {_idc = _this select 0;_selection = (lbSelection GET_CTRL(_idc) select 0);if (isNil {_selection}) then {_selection = 0};(GET_CTRL(_idc) lbData _selection)})
@@ -51,11 +50,38 @@ storePurchaseHandle = _this spawn
 		_price = -1;
 	};
 
+	//Error for mission only items
+	_showMissionOnlyError =
+	{
+		_itemText = _this select 0;
+		hint parseText format ["<t color='#ffff00'>This item is only available through<br/>completing a mission.</t><br/>Find a mission on the map<br/>and collect the rewards.", _itemText];
+		playSound "FD_CP_Not_Clear_F";
+		_price = -1;
+	};
+	//Error for donator only items
+	_showDonatorOnlyError =
+	{
+		_itemText = _this select 0;
+		hint parseText format ["<t color='#ffff00'>The purchase of this item is only<br/>available to community support members.</t><br/>Learn how to become a support member by visiting the forum at A3Armory.com", _itemText];
+		playSound "FD_CP_Not_Clear_F";
+		_price = -1;
+	};
+
 	switch(_switch) do
 	{
 		//Buy To Player
 		case 0:
 		{
+			//Check for donator only items
+			if (!(getPlayerUID player call isdonor) && _itemData in call donatorItems) exitWith
+			{
+				[_itemText] call _showDonatorOnlyError;
+			};
+			//Check for mission only items
+			if (_itemData in call missionOnlyItems) exitWith
+			{
+				[_itemText] call _showMissionOnlyError;
+			};
 			{
 				if (_itemData == _x select 1) exitWith
 				{

@@ -49,6 +49,9 @@ if !(playerSide in [BLUFOR,OPFOR,INDEPENDENT]) exitWith
 	endMission "LOSER";
 };
 
+// Teambalancer
+call compile preprocessFileLineNumbers "client\functions\teamBalance.sqf";
+
 //Setup player events.
 if (!isNil "client_initEH") then { player removeEventHandler ["Respawn", client_initEH] };
 player addEventHandler ["Respawn", { _this spawn onRespawn }];
@@ -80,10 +83,10 @@ if (["A3W_playerSaving"] call isConfigOn) then
 	{
 		scriptName "savePlayerLoop";
 
-		// Save player every 60s
+		// Save player every 5m
 		while {true} do
 		{
-			sleep 60;
+			sleep 300;
 			call fn_savePlayerData;
 		};
 	});
@@ -157,7 +160,7 @@ A3W_clientSetupComplete = compileFinal "true";
 [] spawn playerSpawn;
 
 A3W_scriptThreads pushBack execVM "addons\fpsFix\vehicleManager.sqf";
-A3W_scriptThreads pushBack execVM "addons\Lootspawner\LSclientScan.sqf";
+//A3W_scriptThreads pushBack execVM "addons\Lootspawner\LSclientScan.sqf";
 [] execVM "client\functions\drawPlayerIcons.sqf";
 [] execVM "addons\camera\functions.sqf";
 [] execVM "addons\UAV_Control\functions.sqf";
@@ -165,17 +168,6 @@ A3W_scriptThreads pushBack execVM "addons\Lootspawner\LSclientScan.sqf";
 call compile preprocessFileLineNumbers "client\functions\generateAtmArray.sqf";
 [] execVM "client\functions\drawPlayerMarkers.sqf";
 
-_pic = "addons\a3s\images\serverlogo.paa";
-	[
-		'<img align=''left'' size=''1'' shadow=''0'' image='+(str(_pic))+' />',
-		safeZoneX+1.84,
-		safeZoneY+safeZoneH-1.77,
-		99999,
-		0,
-		0,
-		3090
-	] spawn bis_fnc_dynamicText;
-	
 inGameUISetEventHandler ["Action", "_this call A3W_fnc_inGameUIActionEvent"];
 
 { [_x] call fn_remotePlayerSetup } forEach allPlayers;
@@ -188,5 +180,71 @@ inGameUISetEventHandler ["Action", "_this call A3W_fnc_inGameUIActionEvent"];
 		_x setVariable ["side", playerSide, true];
 	};
 } forEach pvar_spawn_beacons;
-if(hasInterface) then{[] execVM "addons\statusBar\statusbar.sqf"};
-[] execVM "addons\purchaseFuel\purchaseFuelInit.sqf";
+
+// Fast movement log
+if (["A3W_fastMovementLog"] call isConfigOn) then
+{
+	0 spawn
+	{
+		private ["_distCheck", "_loopTime", "_newPos", "_oldPos", "_spawnPos"];
+		_distCheck = ["A3W_fastMovementLogDist", 1200] call getPublicVar;
+		_loopTime = ["A3W_fastMovementLoopTime", 1] call getPublicVar;
+		_oldPos = nil;
+		_spawnPos = getMarkerPos "respawn_guerrila";
+
+		while {true} do
+		{
+			_newPos = getPosATL player;
+
+			if (!isNil "_oldPos" && {_newPos distance2D _oldPos > _distCheck}) then
+			{
+				if (_spawnPos distance2D _newPos > 50 && _spawnPos distance2D _oldPos > 50) then
+				{
+					publicVariableServer format["FML|Name:%1|Vehicle:%2", name player, typeof vehicle player];
+					publicVariableServer format["FML|Speed:%1|OldPos:%2", round speed vehicle player, _oldPos];
+					publicVariableServer format["FML|NewPos:%1", _newPos];
+				};
+			};
+
+			_oldPos = _newPos;
+
+			if (player getVariable ["playerSpawning", true]) then {_oldPos = nil};
+
+			uiSleep _loopTime;
+		};
+	};
+};
+
+// Reserved slots
+if (hasInterface && {["A3W_reservedSlots"] call isConfigOn}) then
+{
+	private ["_maxPlayers", "_noReserve", "_playerCount", "_reservedSlots", "_uid"];
+
+	_maxPlayers = ["A3W_maxPlayers", 50] call getPublicVar;
+	_reservedSlots = ["A3W_reservedSlots", 1] call getPublicVar;
+
+	waitUntil {!isNull player};
+	waitUntil {(vehicle player) == player};
+	waitUntil {(getPlayerUID player) != ""};
+
+	_playerCount = count playableUnits;
+	_noReserve = _maxPlayers - _reservedSlots;
+	_uid = getPlayerUID player;
+
+	if (_uid call isAdmin || {[_uid, topServerDonors] call isDonor}) then
+	{
+		_noReserve = _noReserve + 1;
+
+		if (_noReserve > _maxPlayers) then
+		{
+			_noReserve = _maxPlayers;
+		};
+
+		cutText ["You are using a reserved slot", "PLAIN DOWN", 1];
+	};
+
+	if (_playerCount > _noReserve && !(_uid call isAdmin || {[_uid, topServerDonors] call isDonor})) then
+	{
+		["ReservedSlots",false,1] call BIS_fnc_endMission;
+	};
+};

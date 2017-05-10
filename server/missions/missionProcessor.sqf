@@ -9,7 +9,7 @@ if (!isServer) exitwith {};
 #define MISSION_LOCATION_COOLDOWN (10*60)
 #define MISSION_TIMER_EXTENSION (15*60)
 
-private ["_controllerSuffix", "_missionTimeout", "_availableLocations", "_missionLocation", "_leader", "_marker", "_failed", "_complete", "_startTime", "_oldAiCount", "_leaderTemp", "_newAiCount", "_adjustTime", "_lastPos", "_floorHeight"];
+private ["_controllerSuffix", "_missionTimeout", "_availableLocations", "_missionLocation", "_leader", "_marker", "_failed", "_complete", "_startTime", "_oldAiCount", "_leaderTemp", "_newAiCount", "_adjustTime", "_lastPos", "_floorHeight", "_defMines"];
 
 // Variables that can be defined in the mission script :
 private ["_missionType", "_locationsArray", "_aiGroup", "_missionPos", "_missionPicture", "_missionHintText", "_successHintMessage", "_failedHintMessage"];
@@ -163,28 +163,35 @@ else
 	if (!isNil "_vehicle" && {typeName _vehicle == "OBJECT"}) then
 	{
 		_vehicle setVariable ["R3F_LOG_disabled", false, true];
-		_vehicle setVariable ["A3W_missionVehicle", true, true];
+		//_vehicle setVariable ["A3W_missionVehicle", true, true];
 		_vehicle setVariable ["A3W_lockpickDisabled", nil, true];
 
-		if (!isNil "fn_manualVehicleSave" && !(_vehicle getVariable ["A3W_skipAutoSave", false])) then
+		/*if (!isNil "fn_manualVehicleSave" && !(_vehicle getVariable ["A3W_skipAutoSave", false])) then
 		{
 			_vehicle call fn_manualVehicleSave;
-		};
+		};*/
 	};
+
+	private _convoyAutoSave = ["A3W_missionVehicleSaving"] call isConfigOn;
 
 	if (!isNil "_vehicles" && {typeName _vehicles == "ARRAY"}) then
 	{
 		{
 			if (!isNil "_x" && {typeName _x == "OBJECT"}) then
 			{
+				if (!_convoyAutoSave) then
+				{
+					_x setVariable ["A3W_skipAutoSave", true, true];
+				};
+
 				_x setVariable ["R3F_LOG_disabled", false, true];
-				_x setVariable ["A3W_missionVehicle", true, true];
+				//_x setVariable ["A3W_missionVehicle", true, true];
 				_x setVariable ["A3W_lockpickDisabled", nil, true];
 
-				if (!isNil "fn_manualVehicleSave" && !(_x getVariable ["A3W_skipAutoSave", false])) then
+				/*if (!isNil "fn_manualVehicleSave" && !(_x getVariable ["A3W_skipAutoSave", false])) then
 				{
 					_x call fn_manualVehicleSave;
-				};
+				};*/
 			};
 		} forEach _vehicles;
 	};
@@ -200,6 +207,9 @@ else
 
 	diag_log format ["WASTELAND SERVER - %1 Mission%2 complete: %3", MISSION_PROC_TYPE_NAME, _controllerSuffix, _missionType];
 };
+
+//Cleanup mission defensive mines
+if (!isNil "_defMines") then { { deleteVehicle _x; } forEach _defMines };
 
 deleteGroup _aiGroup;
 deleteMarker _marker;

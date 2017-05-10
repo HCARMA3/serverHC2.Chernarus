@@ -11,6 +11,9 @@ if (_uid call isAdmin) then
 	hint format ["Healing..."];
 	sleep 2;
 	player setDamage 0;
-	hint format ["You're all fixed up"];	
+	hint format ["Your all fixed up"];
+
+	CCGLogger = ["AdminLog", format["Healed Self [%1 (%2)]", name player, getPlayerUID player]];
+	publicVariableServer "CCGLogger";	
 
 };

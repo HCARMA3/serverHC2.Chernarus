@@ -31,11 +31,9 @@ _lock = (["A3W_extDB_Lock", 1] call getPublicVar != 0);
 	if (["A3W_extDB_Misc"] call isConfigOn) then
 	{
 		_result = parseSimpleArray ("extDB3" callExtension format ["9:ADD_PROTOCOL:MISC:%1", call A3W_extDB_miscID]);
-		if (_result select 0 == 0) exitWith { diag_log format ["[extDB2] ███ MISC Protocol error! %1", _result]; false };
+		if (_result select 0 == 0) exitWith { diag_log format ["[extDB3] ███ MISC Protocol error! %1", _result]; false };
 		diag_log "[extDB3] Initialized MISC protocol";
 	};
-
-	
 
 	uiNamespace setVariable ["A3W_extDB_databaseID", call A3W_extDB_databaseID];
 	uiNamespace setVariable ["A3W_extDB_miscID", call A3W_extDB_miscID];
@@ -63,7 +61,7 @@ if (_return) then
 	};
 
 	extDB_pairsToSQL = [_setupDir, "fn_pairsToSQL.sqf"] call mf_compile;
-	extDB_Database_async = [_setupDir, "async_database.sqf"] call mf_compile;	
+	extDB_Database_async = [_setupDir, "async_database.sqf"] call mf_compile;
 
 	if (["A3W_extDB_Misc"] call isConfigOn) then
 	{

@@ -18,24 +18,10 @@ if ([_uid, 2] call isAdmin) then {
 	_displayAdmin = uiNamespace getVariable "AdminMenu";
 	_adminSelect = _displayAdmin displayCtrl adminMenu_option;
 
-	_panelOptions = ["Player Menu", 
-					"Map Markers Log", 
-					"Toggle Vehicle Markers", 
-					"Teleport Map Click", 
-					"Unlock all Objects 60m around you",  
-	                "Delete all Unlocked Objects 60m around you", 
-	                "Relock all Objects 60m around you", 
-					"Vehicle Management (Check/delete hacked vehicles)", 
-	                "Object Search", 
-	                "Heal Self", 
-	                "Delete Cursor Target", 
-	                "Repair Cursor Target", 
-					"Load Gun Store Menu", 
-	                "Load Gen Store Menu",  
-					"BIS FreeRoam Cam (ESC to EXIT)", 
-					"Toggle Spawn Beacon Map Markers",
-					"Add 10k Money to self", 
-					"Toggle Map ESP"
+	_panelOptions = ["Player Management",
+					"Vehicle Management",
+					"Map Markers Log",
+					"Group Leader Markers"
 	];
 
 	{

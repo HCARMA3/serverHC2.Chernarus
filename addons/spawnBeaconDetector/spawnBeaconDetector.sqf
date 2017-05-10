@@ -88,15 +88,15 @@ _spawnBeaconDetectorBeep = _spawnBeaconSoundPath + "addons\spawnBeaconDetector\s
 
 if (spawnBeaconDetectorInProgress) exitWith
 {
-	["You Are Already Using The Spawn Beacon Detector!", 5] call mf_notify_client;
+	["You are already using the spawn beacon detector!", 5] call mf_notify_client;
 };
 
 if (vehicle player != player) exitWith
 {
-	["You Need To Be On Foot To Use The Spawn Beacon Detector!", 5] call mf_notify_client;
+	["You need to be on foot to use the spawn beacon detector!", 5] call mf_notify_client;
 };
 
-_spawnBeaconDetectorObjects = nearestObjects [player, ["Land_Tentdome_F", "Land_HandyCam_F", "Land_Device_assembled_F"], 100];
+_spawnBeaconDetectorObjects = nearestObjects [player, ["Land_Tentdome_F", "Land_Sleeping_bag_folded_F"], 100];
 
 if ((count _spawnBeaconDetectorObjects) > 0) then
 {
@@ -111,28 +111,27 @@ if ((count _spawnBeaconDetectorObjects) > 0) then
 		if !(alive player) exitWith {};
 		if (vehicle player != player) exitWith
 		{
-			["You Got In To A Vehicle, Detection Aborted!", 5] call mf_notify_client;
+			["You got in to a vehicle, detection aborted!", 5] call mf_notify_client;
 			playSound3D [_spawnBeaconDetectorOff, eyePos player, false, eyePos player, 1.00, 1.00, 100];
 			spawnBeaconDetectorInProgress = false;
 		};
 		if !("MineDetector" in (items player)) exitWith
 		{
-			["You Dropped Your Spawn Beacon Detector, Detection Aborted!", 5] call mf_notify_client;
+			["You dropped your spawn beacon detector, detection aborted!", 5] call mf_notify_client;
 			playSound3D [_spawnBeaconDetectorOff, eyePos player, false, eyePos player, 1.00, 1.00, 100];
 			spawnBeaconDetectorInProgress = false;
 		};
-		_spawnBeaconDetectorObjects = nearestObjects [player, ["Land_Tentdome_F", "Land_HandyCam_F", "Land_Device_assembled_F"], 100];
-		for [{_i = 0},{_i < (count _spawnBeaconDetectorObjects)},{_i = _i + 1}] do
+		_spawnBeaconDetectorObjects = nearestObjects [player, ["Land_Tentdome_F", "Land_Sleeping_bag_folded_F"], 100];
 		{
-			_isBeacon = (_spawnBeaconDetectorObjects select _i) getVariable ["a3w_spawnBeacon", false];
+			_isBeacon = _x getVariable ["a3w_spawnBeacon", false];
 			if (_isBeacon) exitWith
 			{
-				_spawnBeaconNearest = _spawnBeaconDetectorObjects select _i;
+				_spawnBeaconNearest = _x;
 			};
-		};
+		}forEach _spawnBeaconDetectorObjects;
 		if (isNil "_spawnBeaconNearest") exitWith
 		{
-			_text = format ["No Spawn Beacons Detected Within %1M, Detection Aborted!",100];
+			_text = format ["No spawn beacons detected within %1m, detection aborted!",100];
 			[_text, 5] call mf_notify_client;
 			playSound3D [_spawnBeaconDetectorOff, eyePos player, false, eyePos player, 1.00, 1.00, 100];
 			spawnBeaconDetectorInProgress = false;
@@ -175,7 +174,7 @@ if ((count _spawnBeaconDetectorObjects) > 0) then
 		}
 		else
 		{
-			["Spawn Beacons Are Out Of Detection Range, Detection Aborted!", 5] call mf_notify_client;
+			["Spawn beacons are out of detection range, detection aborted!", 5] call mf_notify_client;
 			playSound3D [_spawnBeaconDetectorOff, eyePos player, false, eyePos player, 1.00, 1.00, 100];
 			spawnBeaconDetectorInProgress = false;
 		};
@@ -183,7 +182,7 @@ if ((count _spawnBeaconDetectorObjects) > 0) then
 	};
 	if (spawnBeaconFound) then
 	{
-		["Spawn Beacon Found!", 5] call mf_notify_client;
+		["Spawn beacon found!", 5] call mf_notify_client;
 		playSound3D [_spawnBeaconDetectorBlipBlip, eyePos player, false, eyePos player, 1.00, 1.00, 100];
 		uiSleep 0.1;
 		playSound3D [_spawnBeaconDetectorBeep, eyePos player, false, eyePos player, 1.00, 1.00, 100];
@@ -197,7 +196,7 @@ if ((count _spawnBeaconDetectorObjects) > 0) then
 }
 else
 {
-	_text = format ["No Spawn Beacons Detected Within %1M, Detection Aborted!",100];
+	_text = format ["No spawn beacons detected within %1m, detection aborted!",100];
 	[_text, 5] call mf_notify_client;
 	playSound3D [_spawnBeaconDetectorOn, eyePos player, false, eyePos player, 1.00, 1.00, 100];
 	uiSleep 0.5;

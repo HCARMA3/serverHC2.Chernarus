@@ -157,6 +157,7 @@ R3F_LOG_CFG_transporteurs =
 	["Wheeled_APC_F", 30],
 	["Tank_F", 30],
 	["Scooter_Transport_01_base_F", 5],
+	["SDV_01_base_F", 10],
 	["Rubber_duck_base_F", 10],
 	["Boat_Civil_01_base_F", 10],
 	["Boat_Transport_02_base_F", 15],
@@ -231,15 +232,27 @@ R3F_LOG_CFG_objets_transportables =
 	["Land_Shoot_House_Wall_F", 3],
 	["Land_Stone_8m_F", 5],
 	["Land_ToiletBox_F", 2],
-	["Land_BarrelWater_F", 2]
+	["Land_BarrelWater_F", 2],
+	["Campfire_burning_F", 2],
+	["Land_CampingChair_V1_F", 2],
+	["Land_CampingTable_F", 2]
 ];
 
 /****** MOVABLE-BY-PLAYER OBJECTS / OBJETS DEPLACABLES PAR LE JOUEUR ******/
 
 R3F_LOG_CFG_objets_deplacables =
 [
+	"B_supplyCrate_F",
+	"Box_NATO_Wps_F",
+	"Box_NATO_WpsSpecial_F",
+	"Box_East_Wps_F",
+	"Box_East_WpsSpecial_F",
+	"Box_IND_Wps_F",
+	"Box_IND_WpsSpecial_F",
+	"Box_FIA_Support_F",
+	"Box_FIA_Wps_F",
+	"Box_FIA_Ammo_F",
 	"StaticWeapon",
-	"ReammoBox_F",
 	"Kart_01_Base_F",
 	"Quadbike_01_base_F",
 	"Rubber_duck_base_F",
@@ -288,5 +301,8 @@ R3F_LOG_CFG_objets_deplacables =
 	"Land_Shoot_House_Wall_F",
 	"Land_Stone_8m_F",
 	"Land_ToiletBox_F",
-	"Land_BarrelWater_F"
+	"Land_BarrelWater_F",
+	"Campfire_burning_F",
+	"Land_CampingChair_V1_F",
+	"Land_CampingTable_F"
 ];

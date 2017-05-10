@@ -4,7 +4,7 @@
 //	@file Name: getPlayerData.sqf
 //	@file Author: AgentRev
 
-private ["_player", "_saveLocation", "_data", "_hitPoints", "_hpDamage", "_pos", "_loadedMags", "_mag", "_ammo", "_loaded", "_type", "_wastelandItems"];
+private ["_player", "_saveLocation", "_data", "_hitPoints", "_hpDamage", "_pos", "_loadedMags", "_mag", "_ammo", "_loaded", "_type", "_wastelandItems", "_spawnPos"];
 _player = _this select 0;
 _saveLocation = if (count _this > 1) then { _this select 1 } else { true };
 
@@ -38,15 +38,20 @@ _hpDamage = getAllHitPointsDamage _player;
 if (_saveLocation && {isTouchingGround vehicle _player || {(getPos _player) select 2 < 0.5 || (getPosASL _player) select 2 < 0.5}}) then
 {
 	_pos = getPosATL _player;
-	{ _pos set [_forEachIndex, _x call fn_numToStr] } forEach _pos;
+	_spawnPos = getMarkerPos "respawn_guerrila";
 
-	_data pushBack ["Position", _pos];
-	_data pushBack ["Direction", getDir _player];
-
-	if (vehicle _player == player) then
+	if (_spawnPos distance2D _pos > 500) then
 	{
-		_data pushBack ["CurrentWeapon", currentWeapon player];
-		_data pushBack ["Stance", [player, ["P"]] call getMoveParams];
+		{ _pos set [_forEachIndex, _x call fn_numToStr] } forEach _pos;
+
+		_data pushBack ["Position", _pos];
+		_data pushBack ["Direction", getDir _player];
+
+		if (vehicle _player == player) then
+		{
+			_data pushBack ["CurrentWeapon", currentWeapon player];
+			_data pushBack ["Stance", [player, ["P"]] call getMoveParams];
+		};
 	};
 };
 
@@ -114,5 +119,50 @@ if (_player == player) then
 
 	_data pushBack ["WastelandItems", _wastelandItems];
 };
+
+// Uniform and backpack texture saving
+_uniformTexture = uniformContainer _player getVariable ["uniformTexture", ""];
+
+if (call A3W_savingMethod == "extDB") then
+{
+	_uniformTexture = (_uniformTexture splitString "\") joinString "\\";
+/*	_texArr = [];
+
+	{
+		_texArr pushBack _x;
+
+		if (_x == 92) then // backslash
+		{
+			_texArr pushBack 92; // double it
+		};
+	} forEach toArray _uniformTexture;
+
+	_uniformTexture = toString _texArr;*/
+};
+
+_backpackTexture = backpackContainer _player getVariable ["backpackTexture", ""];
+
+if (call A3W_savingMethod == "extDB") then
+{
+	_backpackTexture = (_backpackTexture splitString "\") joinString "\\";
+/*	_btexArr = [];
+
+	{
+		_btexArr pushBack _x;
+
+		if (_x == 92) then // backslash
+		{
+			_btexArr pushBack 92; // double it
+		};
+	} forEach toArray _backpackTexture;
+
+	_backpackTexture = toString _btexArr;*/
+};
+
+{ _data pushBack _x } forEach
+[
+	["UniformTexture", _uniformTexture],
+	["BackpackTexture", _backpackTexture]
+];
 
 _data

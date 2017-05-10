@@ -10,7 +10,7 @@
 #define adminMenu_option 50001
 disableSerialization;
 
-private ["_panelType","_displayAdmin","_displayDebug","_adminSelect","_debugSelect","_money"];
+private ["_panelType","_displayAdmin","_displayDebug","_adminSelect","_debugSelect","_money","_veh"];
 _uid = getPlayerUID player;
 if (_uid call isAdmin) then
 {
@@ -43,153 +43,164 @@ if (_uid call isAdmin) then
 				{
 					execVM "client\systems\adminPanel\tools\vehicleMarkers.sqf";
 				};				
-				case 3: //TP
+
+				case 3: //esp map markers
+				{
+					execVM "client\systems\adminPanel\tools\mapEsp.sqf";
+				};
+
+				case 4: //esp
+				{
+					execVM "client\systems\adminPanel\tools\igEsp.sqf";
+				};				
+
+				case 5: // toggle God mode
+				{
+					execVM "client\systems\adminPanel\tools\toggleGodMode.sqf";
+				};
+
+				case 6: // toggle veh God mode
+				{
+					execVM "client\systems\adminPanel\tools\vehicleGod.sqf";
+				};				
+
+				case 7: // toggle invis mode
+ 				{
+ 					execVM "client\systems\adminPanel\tools\toggleInvisMode.sqf";
+  				};
+
+				case 8: //Teleport
 				{
 					closeDialog 0;
-					["A3W_tp", "onMapSingleClick",
+					["A3W_teleport", "onMapSingleClick",
 					{
 						vehicle player setPos _pos;
 						if (!isNil "notifyAdminMenu") then { ["teleport", _pos] spawn notifyAdminMenu };
-						["A3W_tp", "onMapSingleClick"] call BIS_fnc_removeStackedEventHandler;
+						["A3W_teleport", "onMapSingleClick"] call BIS_fnc_removeStackedEventHandler;
 						true
 					}] call BIS_fnc_addStackedEventHandler;
 					
-					hint "Click on map to TP";				
+					hint "Click on map to teleport";
+
+					CCGLogger = ["AdminLog", format["Teleported [%1 (%2)]", name player, getPlayerUID player]];
+					publicVariableServer "CCGLogger";					
 				};
 
-     			case 4: //Unlock Base Objects within 60m
+     			case 9: //Unlock Base Objects within 60m
   				{
   					execVM "client\systems\adminPanel\tools\unLock.sqf"; 					
  				};
 
- 				case 5: //Delete Unlocked Base Objects within 60m
+ 				case 10: //Delete Unlocked Base Objects within 60m
  				{
- 					execVM "client\systems\adminPanel\tools\deleteUnlocked.sqf"; 					
+ 					execVM "client\systems\adminPanel\tools\tools\deleteUnlocked.sqf"; 					
  				};
 
-  				case 6: //Relock objects within 60m
+  				case 11: //Relock objects within 60m
  				{
  					execVM "client\systems\adminPanel\tools\reLock.sqf"; 				    
  				};
-				case 7: //Full Vehicle Management
+
+				case 12: //Money
+				{
+					_money = 10000;
+					player setVariable ["cmoney", (player getVariable ["cmoney",0]) + _money, true];
+					if (!isNil "notifyAdminMenu") then { ["money", _money] call notifyAdminMenu };
+					CCGLogger = ["AdminLog", format["Gave himself 10k in cash [%1 (%2)]", name player, getPlayerUID player]];
+					publicVariableServer "CCGLogger";
+				};
+
+				case 13: //Full Vehicle Management
 				{
 					closeDialog 0;
 					execVM "client\systems\adminPanel\vehicleManagement.sqf";
 				};
 
-				case 8: //Object search menu
+				case 14: //Object search menu
 				{
 					closeDialog 0;
 					execVM "client\systems\adminPanel\loadObjectSearch.sqf";
 				};
 
-				case 9: //healself
+				case 15: //healself
 				{
 					execVM "client\systems\adminPanel\tools\healSelf.sqf";
 				};
 
-				case 10: //delete vehicle
+				case 16: //delete vehicle
 				{
 					closeDialog 0;
 					_x = cursorTarget;
 					deleteVehicle _x;
 					systemChat format["Deleted %1", _x];
-					titleText [format["Object Removed!"],"PLAIN DOWN"]; titleFadeOut 4;								
+					titleText [format["Object Removed!"],"PLAIN DOWN"]; titleFadeOut 4;
+					CCGLogger = ["AdminLog", format["Deleted Cursor target [%1 (%2/%3)]", _x, name player, getPlayerUID player]];
+					publicVariableServer "CCGLogger";									
 				};
 
-				case 11: //repair vehicle
+				case 17: //repair vehicle
 				{
 					closeDialog 0;
 					_veh2 = cursorTarget;
 					_veh2 setfuel 1;
 					_veh2 setdamage 0;
-					SystemChat "Vehicle Fixed!";									
-				};				
-				case 12: //gun store
-				{
-					closeDialog 0;
-					[] call loadGunStore;
-				};
-
-				case 13: //Gen store
-				{
-					closeDialog 0;
-					[] call loadGeneralStore;
-				};
-				case 14: //freecam
-				{
-					closeDialog 0;
-					if(!isNil'camerathread')then{terminate camerathread;camerathread=nil;};
-					camerathread = [] spawn (uinamespace getvariable 'bis_fnc_camera');
-				};
-				case 15: //Spawn Beacon Map Markers
-				{
-					
-					execVM "client\systems\adminPanel\tools\spawnBeacons.sqf";
-				};	
-				case 16: //Money
-				{
-					_money = 10000;
-					player setVariable ["cmoney", (player getVariable ["cmoney",0]) + _money, true];
-					if (!isNil "notifyAdminMenu") then { ["money", _money] call notifyAdminMenu };
-				};
-				case 17: //esp map markers
-				{
-					execVM "client\systems\adminPanel\tools\mapEsp.sqf";
-					if (!isNil "notifyAdminMenu") then { ["esp", _esp] spawn notifyAdminMenu };
-				};
-
-				case 18: //esp
-				{
-					execVM "client\systems\adminPanel\tools\igEsp.sqf";
+					SystemChat "Vehicle Fixed!";
+					CCGLogger = ["AdminLog", format["Repaired Cursor target [%1 (%2/%3)]", typeOf _veh2, name player, getPlayerUID player]];
+					publicVariableServer "CCGLogger";									
 				};				
 
-				case 19: // toggle GM
-				{
-					execVM "client\systems\adminPanel\tools\togglePlayergod.sqf";
-				};
-
-				case 20: // toggle veh GM
-				{
-					execVM "client\systems\adminPanel\tools\toggleVehiclegod.sqf";
-				};				
-
-				case 21: // toggle invis mode
- 				{
- 					execVM "client\systems\adminPanel\tools\toggleInvisMode.sqf";
-  				};
-
-				case 22: //Air Strike
+				case 18: //matt76_rockets
 				{
 					closeDialog 0;
 					execVM "client\systems\adminPanel\tools\matt76_rockets.sqf";
 				};
 
-				case 23: //Rocket Bullets
+				case 19: //matt76_rockets
 				{
 					closeDialog 0;
 					execVM "client\systems\adminPanel\tools\matt76_bullets.sqf";
+				};	
+
+				case 20: //gun store
+				{
+					closeDialog 0;
+					[] call loadGunStore;
 				};
-				case 24: //ai esp
+
+				case 21: //Gen store
+				{
+					closeDialog 0;
+					[] call loadGeneralStore;
+				};
+
+				case 22: //ATM
+				{
+					closeDialog 0;
+					call mf_items_atm_access;
+				};	
+
+				case 23: //ai esp
 				{
 					closeDialog 0;
 					execVM "client\systems\adminPanel\tools\aiEsp.sqf";
 				};	
 
-				case 25: //Toggle Terrain Height
+				case 24: //terrain
 				{
 					execVM "client\systems\adminPanel\tools\terrain.sqf";
 				};
-				
-				case 26: //Unlimited Ammo
-				{
-					execVM "client\systems\adminPanel\tools\matt76_ammo.sqf";
-				};
-				case 27: //ATM
+
+				case 25: //freecam
 				{
 					closeDialog 0;
-					call mf_items_atm_access;
-				};	
+					if(!isNil'camerathread')then{terminate camerathread;camerathread=nil;};
+					camerathread = [] spawn (uinamespace getvariable 'bis_fnc_camera');
+				};
+
+				case 26: //unlimited ammo
+				{
+					execVM "client\systems\adminPanel\tools\matt76_ammo.sqf";
+				};				
 			};
 		};
 	};

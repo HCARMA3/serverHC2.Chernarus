@@ -22,23 +22,7 @@ if (isNil "_killer" || {isNull _killer}) then
 
 	_killer = _presumedKiller;
 };
-createBodyMarker = 
- {
-	deleteMarkerLocal "deadMarker";
- 	_pos = getPos (vehicle player);
- 	_dMarker = createMarkerLocal ["deadMarker", _pos];
- 	_dMarker setMarkerShapeLocal "ICON";
- 	_dMarker setMarkerAlphaLocal 1;
- 	_dMarker setMarkerPosLocal _pos;
- 	_dMarker setMarkerTextLocal "R.I.P";
- 	_dMarker setMarkerColorLocal "ColorBlue";
- 	_dMarker setMarkerTypeLocal "waypoint";
- 	_dMarker setMarkerSizeLocal [0.6,0.6];
- 	sleep 600;
- 	deleteMarkerLocal _dMarker;
- };
- [] spawn createBodyMarker;
- 
+
 _killer = effectiveCommander _killer;
 _deathCause = _player getVariable ["A3W_deathCause_local", []];
 

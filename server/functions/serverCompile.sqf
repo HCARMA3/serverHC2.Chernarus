@@ -13,7 +13,6 @@ diag_log "WASTELAND SERVER - Initializing Server Compile";
 
 //Factory Compiles
 _path = "server\missions\factoryMethods";
-randomSoldierLoadOut = [_path, "createUnits\randomSoldierLoadOut.sqf"] call mf_compile;
 attemptCompileMissions = [_path, "attemptCompileMissions.sqf"] call mf_compile;
 checkMissionVehicleLock = [_path, "checkMissionVehicleLock.sqf"] call mf_compile;
 cleanLocationObjects = [_path, "cleanLocationObjects.sqf"] call mf_compile;
@@ -36,10 +35,14 @@ removeDisabledMissions = [_path, "removeDisabledMissions.sqf"] call mf_compile;
 setLocationObjects = [_path, "setLocationObjects.sqf"] call mf_compile;
 setLocationState = [_path, "setLocationState.sqf"] call mf_compile;
 setMissionState = [_path, "setMissionState.sqf"] call mf_compile;
+createsniperGroup = [_path, "createUnits\sniperGroup.sqf"] call mf_compile;
+createCustomGroup3 = [_path, "createUnits\customGroup3.sqf"] call mf_compile;
+addDefensiveMines = [_path, "createUnits\addDefensiveMines.sqf"] call mf_compile;
+createCustomGroup4 = [_path, "createUnits\customGroup4.sqf"] call mf_compile;
+createOccupationGroup = [_path, "createUnits\occupationGroup.sqf"] call mf_compile;
 
 //Function Compiles
 _path = "server\functions";
-randomCrateLoadOut = [_path, "randomCrateLoadOut.sqf"] call mf_compile;
 A3W_fnc_checkHackedVehicles = [_path, "checkHackedVehicles.sqf"] call mf_compile;
 A3W_fnc_deleteEmptyGroup = [_path, "fn_deleteEmptyGroup.sqf"] call mf_compile;
 A3W_fnc_registerKillScore = [_path, "fn_registerKillScore.sqf"] call mf_compile;
@@ -71,7 +74,8 @@ processTransaction = [_path, "processTransaction.sqf"] call mf_compile;
 punishTeamKiller = [_path, "punishTeamKiller.sqf"] call mf_compile;
 refillPrimaryAmmo = [_path, "refillPrimaryAmmo.sqf"] call mf_compile;
 respawnEventServer = [_path, "respawnEventServer.sqf"] call mf_compile;
-setMissionSkill = [_path, "setMissionSkill.sqf"] call mf_compile;
+setMissionSkill = [_path, "setMissionSkill.sqf"] call mf_compile;\
+setMissionSkillConvoy = [_path, "setMissionSkillConvoy.sqf"] call mf_compile;
 spawnStoreObject = [_path, "spawnStoreObject.sqf"] call mf_compile;
 teamKillUnlock = [_path, "teamKillUnlock.sqf"] call mf_compile;
 teamSwitchLock = [_path, "teamSwitchLock.sqf"] call mf_compile;
@@ -83,8 +87,8 @@ waitUntilBagTaken = [_path, "waitUntilBagTaken.sqf"] call mf_compile;
 weaponDisassembledServer = [_path, "weaponDisassembledServer.sqf"] call mf_compile;
 
 //Player Management
-server_playerDied = [_path, "serverPlayerDied.sqf"] call mf_compile;
-A3W_fnc_serverPlayerDied = server_playerDied;
+server_playerDied = [_path, "serverAiDied.sqf"] call mf_compile;
+A3W_fnc_serverPlayerDied = [_path, "serverPlayerDied.sqf"] call mf_compile;
 
 //Spawning Compiles
 _path = "server\spawning";

@@ -9,7 +9,11 @@
 client_firstSpawn = true;
 
 //[] execVM "client\functions\welcomeMessage.sqf";
-[] execVM "addons\TOParmaInfo\loadTOParmaInfo.sqf";
+//[] execVM "addons\TOParmaInfo\loadTOParmaInfo.sqf";
+
+createDialog'RscDisplayServerInfoMenu';
+
+[] execVM "addons\InfoPage\infoPage.sqf";
 
 player addEventHandler ["Take",
 {
@@ -19,7 +23,14 @@ player addEventHandler ["Take",
 	{
 		_vehicle setVariable ["itemTakenFromVehicle", true, true];
 	};
-}];
+
+	// Persistent player textures addition
+	([uniformContainer player getVariable "uniformTexture"])
+	params ["_texCustom"];
+	if (isNil "_texCustom") exitWith {};
+	player setObjectTextureGlobal [0, _texCustom];
+	false
+}];	
 
 player addEventHandler ["Put",
 {
@@ -161,7 +172,7 @@ player addEventHandler ["InventoryClosed",
 
 player addEventHandler ["HandleDamage", unitHandleDamage];
 
-if (["A3W_remoteBombStoreRadius", 0] call getPublicVar > 0) then
+/*if (["A3W_remoteBombStoreRadius", 0] call getPublicVar > 0) then
 {
 	player addEventHandler ["Fired",
 	{
@@ -189,7 +200,7 @@ if (["A3W_remoteBombStoreRadius", 0] call getPublicVar > 0) then
 			};
 		};
 	}];
-};
+};*/
 
 if (["A3W_combatAbortDelay", 0] call getPublicVar > 0) then
 {
@@ -216,10 +227,10 @@ player addEventHandler ["GetOutMan", { player setAnimSpeedCoef 1 }];
 
 _uid = getPlayerUID player;
 
-if (playerSide in [BLUFOR,OPFOR] && {{_x select 0 == _uid} count pvar_teamSwitchList == 0}) then
+if (playerSide in [BLUFOR,OPFOR,INDEPENDENT] && {{_x select 0 == _uid} count pvar_teamSwitchList == 0}) then
 {
 	_startTime = diag_tickTime;
-	waitUntil {sleep 1; diag_tickTime - _startTime >= 180};
+	waitUntil {sleep 1; diag_tickTime - _startTime >= 600};
 
 	pvar_teamSwitchLock = [_uid, playerSide];
 	publicVariableServer "pvar_teamSwitchLock";
@@ -227,7 +238,8 @@ if (playerSide in [BLUFOR,OPFOR] && {{_x select 0 == _uid} count pvar_teamSwitch
 	_side = switch (playerSide) do
 	{
 		case BLUFOR: { "BLUFOR" };
-		case OPFOR:  { "OPFOR" };
+		case OPFOR: { "OPFOR" };
+		case INDEPENDENT: { "INDEPENDENT" };
 	};
 
 	titleText [format ["You have been locked to %1", _side], "PLAIN", 0.5];

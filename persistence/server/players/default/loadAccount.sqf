@@ -29,10 +29,10 @@ _getValue =
 	};
 };
 
+["Donator", "NUMBER", "PlayerInfo"] call _getValue;
 ["BankMoney", "NUMBER", "PlayerInfo"] call _getValue;
 ["Bounty", "NUMBER", "PlayerInfo"] call _getValue;
 ["BountyKills", "ARRAY", "PlayerInfo"] call _getValue;
-["Donator", "NUMBER", "PlayerInfo"] call _getValue;
 
 if (["A3W_privateStorage"] call isConfigOn) then
 {
@@ -83,6 +83,9 @@ if (["A3W_moneySaving"] call isConfigOn) then
 ["PartialMagazines", "ARRAY"] call _getValue; // legacy
 
 ["WastelandItems", "ARRAY"] call _getValue;
+
+["UniformTexture", "STRING"] call _getValue;
+["BackpackTexture", "STRING"] call _getValue;
 
 ["Hunger", "NUMBER"] call _getValue;
 ["Thirst", "NUMBER"] call _getValue;

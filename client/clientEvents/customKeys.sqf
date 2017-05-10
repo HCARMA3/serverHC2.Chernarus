@@ -21,12 +21,14 @@ private ["_varName", "_defKeys", "_customKeys", "_isValid", "_voiceKeys"];
 forEach
 [
 	["A3W_customKeys_adminMenu", [22]], // 22 = U
-	//["A3W_customKeys_playerMenu", [41]], // 41 = Tilde (above Tab)
+	["A3W_customKeys_playerMenu", [41]], // 41 = Tilde (above Tab)
 	["A3W_customKeys_playerNames", [199,219,220]], // 199 = Home, 219 = LWin, 220 = RWin
-	["A3W_customKeys_earPlugs", [207]] // 207 = End
+	["A3W_customKeys_earPlugs", [207]], // 207 = End
+	["A3W_customKeys_eject", [211]], // 211 = Del
+	["A3W_customKeys_holster", [35]] // 35 = H 
 ];
 
-_voiceKeys = [];
+/*_voiceKeys = [];
 { _voiceKeys append actionKeys _x } forEach
 [
 	"NextChannel",
@@ -40,4 +42,4 @@ _voiceKeys = [];
 	"PushToTalkVehicle"
 ];
 
-A3W_allVoiceChatKeys = compileFinal str _voiceKeys;
+A3W_allVoiceChatKeys = compileFinal str _voiceKeys;*/

@@ -67,6 +67,8 @@ reverse _cfgColors;
 					{
 						[_existingTex, _x select 0, _x select 1] call fn_setToPairs;
 					} forEach _tex;
+
+					_added = true;
 				};
 			};
 
@@ -95,6 +97,7 @@ reverse _cfgColors;
 		}
 		else
 		{
+			_tex sort true;
 			_tex = _tex select 0 select 1;
 		};
 	};
@@ -104,5 +107,10 @@ reverse _cfgColors;
 		_colorlistIndex = _colorlist lbAdd _texName;
 		_colorlist lbSetPicture [_colorlistIndex, _tex];
 		_colorlist lbSetData [_colorlistIndex, str _texData];
+		
+		//Disabled look for donator only colors
+		if (!(getPlayerUID player call isdonor)) then{
+			_colorlist lbSetColor [_colorlistIndex, [0, 255, 0, .25]];
+		};
 	};
 } forEach _colorsArray;

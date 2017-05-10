@@ -26,7 +26,7 @@ private ["_pos", "_marker"];
 
 	_marker setMarkerColor "ColorBlue";
 	_marker setMarkerBrush "SolidBorder";
-	_marker setMarkerAlpha 0;
+	_marker setMarkerAlpha 0.3;
 } forEach (call cityList);
 
 // Reapply territory markers on top of towns

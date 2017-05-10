@@ -28,10 +28,10 @@ X_Server = false;
 X_Client = false;
 X_JIP = false;
 
-CHVD_allowNoGrass = false;
+/*CHVD_allowNoGrass = false;
 CHVD_allowTerrain = false; // terrain option has been disabled out from the menu due to terrible code, this variable has currently no effect
 CHVD_maxView = 3000; // Set maximum view distance (default: 12000)
-CHVD_maxObj = 3000; // Set maximimum object view distance (default: 12000)
+CHVD_maxObj = 3000;*/ // Set maximimum object view distance (default: 12000)
 
 // versionName = ""; // Set in STR_WL_WelcomeToWasteland in stringtable.xml
 
@@ -47,8 +47,7 @@ A3W_scriptThreads = [];
 [] execVM "config.sqf";
 [] execVM "storeConfig.sqf"; // Separated as its now v large
 [] execVM "briefing.sqf";
-
-
+[] execVM "killTicker.sqf"; // Mostra Kills
 
 if (!isDedicated) then
 {
@@ -96,22 +95,32 @@ if (hasInterface || isServer) then
 	[] execVM "addons\parking\functions.sqf";
 	[] execVM "addons\storage\functions.sqf";
 	[] execVM "addons\vactions\functions.sqf";
-	[] execVM "addons\HvT\HvT.sqf"; 
+	[] execVM "addons\APOC_Airdrop_Assistance\init.sqf";
 	[] execVM "addons\R3F_ARTY_AND_LOG\init.sqf";
-	[] execVM "addons\proving_ground\init.sqf";
 	[] execVM "addons\JumpMF\init.sqf";
+	[] execVM "addons\JTS_PM\Functions.sqf";
 	[] execVM "addons\outlw_magrepack\MagRepack_init.sqf";
 	[] execVM "addons\lsd_nvg\init.sqf";
+	[] execVM "addons\statusBar\statusbar.sqf";              // Status do FPS LR
+	[] execVM "addons\Grenades\initGrenades.sqf";            // Toxic Gas, smokerYellow and GLsmokerRed
+	[] execVM "ScarCode\sRestartWarnings.sqf";               // Aviso do Restart
+	[] execVM "addons\timedrestart\timed_restart.sqf";
 	[] execVM "addons\stickyCharges\init.sqf";
+	[] execVM "addons\scripts\HvT.sqf";                      // High Value Money	
+    [] execVM "addons\scripts\HvD.sqf";                      // High Value Drugrunner
+	[] execVM "addons\scripts\servercredits.sqf";
 	if (isNil "drn_DynamicWeather_MainThread") then { drn_DynamicWeather_MainThread = [] execVM "addons\scripts\DynamicWeatherEffects.sqf" };
-	[] execVM "addons\a3s\scripts\BRAma_NoDebugZone.sqf";
+	[] execVM "addons\bounty\init.sqf";
+	[] ExecVM "scarCODE\ServerInfoMenu\sqf\initLocal.sqf"; // scarCODE ServerInfoMenu
 };
 
+// Server restart message
+"RM_DISPLAYTEXT_PUBVAR" addPublicVariableEventHandler {(_this select 1) spawn BIS_fnc_dynamicText;};
+
 // Remove line drawings from map
-(createTrigger ["EmptyDetector", [0,0,0], false]) setTriggerStatements
+/*(createTrigger ["EmptyDetector", [0,0,0], false]) setTriggerStatements
 [
-	"!triggerActivated thisTrigger", 
+	"!triggerActivated thisTrigger",
 	"thisTrigger setTriggerTimeout [30,30,30,false]",
 	"{if (markerShape _x == 'POLYLINE') then {deleteMarker _x}} forEach allMapMarkers"
-];
-"RM_DISPLAYTEXT_PUBVAR" addPublicVariableEventHandler {(_this select 1) spawn BIS_fnc_dynamicText;};
+];*/

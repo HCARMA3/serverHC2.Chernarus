@@ -71,6 +71,15 @@ if (_showAmmo) then
 				_ammolistIndex = _ammolist lbAdd format ["%1", if (_name == "") then { getText (_conf >> "displayName") } else { _name }];
 				_ammolist lbSetPicture [_ammolistIndex,_picture];
 				_ammolist lbSetData [_ammolistIndex, _shopMagClass];
+
+				//Disabled look for items only obtainable through missions
+				if (_shopMagClass in call missionOnlyItems) then {
+					_ammolist lbSetColor [_ammolistIndex, [1, 1, 1, .5]];
+				};
+				//Disabled look for donator only items
+				if (!(getPlayerUID player call isdonor) && _shopMagClass in call donatorItems) then {
+					_ammolist lbSetColor [_ammolistIndex, [0, 255, 0, .25]];
+				};
 			};
 		} forEach (call ammoArray);
 

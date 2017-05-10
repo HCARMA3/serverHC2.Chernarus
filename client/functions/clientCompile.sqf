@@ -41,13 +41,14 @@ fn_formatTimer = "client\functions\fn_formatTimer.sqf" call mf_compile;
 fn_getItemArmor = "client\functions\fn_getItemArmor.sqf" call mf_compile;
 fn_removeAllManagedActions = "client\functions\fn_removeAllManagedActions.sqf" call mf_compile;
 fn_removeManagedAction = "client\functions\fn_removeManagedAction.sqf" call mf_compile;
-fn_voiceChatControl = "client\functions\fn_voiceChatControl.sqf" call mf_compile;
+//fn_voiceChatControl = "client\functions\fn_voiceChatControl.sqf" call mf_compile;
 getDefaultClothing = "client\functions\getDefaultClothing.sqf" call mf_compile;
 getFullMove = "client\functions\getFullMove.sqf" call mf_compile;
 getMoveParams = "client\functions\getMoveParams.sqf" call mf_compile;
 getPushPlaneAction = "client\functions\getPushPlaneAction.sqf" call mf_compile;
 groupNotify = "client\functions\groupNotify.sqf" call mf_compile;
 isAdmin = "client\systems\adminPanel\isAdmin.sqf" call mf_compile;
+isDonor = "client\systems\adminPanel\isDonor.sqf" call mf_compile;
 isAssignableBinocular = "client\functions\isAssignableBinocular.sqf" call mf_compile;
 isPVarTarget = "client\functions\isPVarTarget.sqf" call mf_compile;
 isWeaponType = "client\functions\isWeaponType.sqf" call mf_compile;
@@ -59,6 +60,9 @@ unitHandleDamage = "client\functions\unitHandleDamage.sqf" call mf_compile;
 updateTerritoryMarkers = "territory\client\updateTerritoryMarkers.sqf" call mf_compile;
 vehicleSideCfg = "client\functions\vehicleSideCfg.sqf" call mf_compile;
 weaponDisassembledEvent = "client\functions\weaponDisassembledEvent.sqf" call mf_compile;
+
+deleteBeacon = "client\items\beacon\deleteBeacon.sqf" call mf_compile;
+applyPlayerTexture = "client\functions\applyPlayerTexture.sqf" call mf_compile; // Added for persistent uniform textures
 
 // Player details and actions
 loadPlayerMenu = "client\systems\playerMenu\init.sqf" call mf_compile;
@@ -86,7 +90,6 @@ teamkillAction = "client\functions\doTeamKillAction.sqf" call mf_compile;
 teamkillMessage = "client\functions\showTeamKillMessage.sqf" call mf_compile;
 
 // Dialog compiles
-loadTOParmaInfo = "addons\TOParmaInfo\loadTOParmaInfo.sqf" call mf_compile;
 client_respawnDialog = "client\systems\playerMenu\dialog\loadRespawnDialog.sqf" call mf_compile;
 fn_checkStoreItemDLC = "client\functions\fn_checkStoreItemDLC.sqf" call mf_compile;
 fn_respawnTimer = "client\systems\scoreboard\fn_respawnTimer.sqf" call mf_compile;

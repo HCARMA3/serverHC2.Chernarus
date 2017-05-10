@@ -33,6 +33,8 @@ if (isServer) then
 
 		_veh = objectParent _unit;
 
+		(format ["Player %1 went to lobby", _name]) remoteExecCall ["systemChat", 0];
+
 		// force unlock vehicle if not owned by player OR if somebody else is still inside
 		if (alive _veh && (_veh getVariable ["ownerUID","0"] != _uid || {{alive _x} count (crew _veh - [_unit]) > 0})) then
 		{
@@ -132,7 +134,7 @@ if (isServer) then
 		"A3W_teamPlayersMap",
 		"A3W_remoteBombStoreRadius",
 		"A3W_vehiclePurchaseCooldown",
-		"A3W_disableGlobalVoice",
+		//"A3W_disableGlobalVoice",
 		"A3W_antiHackMinRecoil",
 		"A3W_spawnBeaconCooldown",
 		"A3W_spawnBeaconSpawnHeight",
@@ -166,7 +168,22 @@ if (isServer) then
 		"A3W_vehicleLocking",
 		"A3W_disableBuiltInThermal",
 		"A3W_customDeathMessages",
-		"A3W_headshotNoRevive"
+		//"A3W_headshotNoRevive",
+		"A3W_maxSpawnBeacons",
+		"A3W_bountyMax",
+		"A3W_bountyMinStart",
+		"A3W_bountyRewardPerc",
+		"A3W_bountyLifetime",
+		"A3W_maxMoney",
+		"A3W_healthTime",
+		"A3W_hungerTime",
+		"A3W_thirstTime",
+		"A3W_fastMovementLog",
+		"A3W_fastMovementLogDist",
+		"A3W_fastMovementLoopTime",
+		"A3W_restartServer",
+		"A3W_reservedSlots",
+		"A3W_maxPlayers"
 	];
 
 	addMissionEventHandler ["PlayerConnected", fn_onPlayerConnected];
@@ -184,6 +201,7 @@ _baseSavingOn = ["A3W_baseSaving"] call isConfigOn;
 _boxSavingOn = ["A3W_boxSaving"] call isConfigOn;
 _staticWeaponSavingOn = ["A3W_staticWeaponSaving"] call isConfigOn;
 _warchestSavingOn = ["A3W_warchestSaving"] call isConfigOn;
+serverCommandPassword = ["A3W_restartServer"] call getPublicVar;
 _warchestMoneySavingOn = ["A3W_warchestMoneySaving"] call isConfigOn;
 _beaconSavingOn = ["A3W_spawnBeaconSaving"] call isConfigOn;
 _timeSavingOn = ["A3W_timeSaving"] call isConfigOn;
@@ -462,11 +480,18 @@ if (_timeSavingOn || _weatherSavingOn) then
 	execVM "persistence\server\world\tLoad.sqf";
 };
 
-if ((isNil "A3W_buildingLoot" && {["A3W_buildingLootWeapons"] call isConfigOn || {["A3W_buildingLootSupplies"] call isConfigOn}}) || {["A3W_buildingLoot"] call isConfigOn}) then
+// Simple loot spawn
+if (["A3W_simpleLoot"] call isConfigOn) then
+{
+	diag_log "[INFO] Simple loot spawning is ENABLED";
+	execVM "addons\simple_lootspawner\lootInit.sqf";
+};
+
+/*if ((isNil "A3W_buildingLoot" && {["A3W_buildingLootWeapons"] call isConfigOn || {["A3W_buildingLootSupplies"] call isConfigOn}}) || {["A3W_buildingLoot"] call isConfigOn}) then
 {
 	diag_log "[INFO] A3W loot spawning is ENABLED";
 	execVM "addons\Lootspawner\Lootspawner.sqf";
-};
+};*/
 
 [] execVM "server\functions\serverTimeSync.sqf";
 
@@ -547,4 +572,9 @@ if !(["A3W_hcObjCleanup"] call isConfigOn) then
 	// Start clean-up loop
 	execVM "server\WastelandServClean.sqf";
 };
-[] execVM "addons\purchaseFuel\purchaseFuelInit.sqf";
+
+// Extra clean-up addon
+if (["A3W_repetitiveCleanup"] call isConfigOn) then
+{
+	[] execVM "addons\repetitive_cleanup\repetitive_cleanup.sqf";
+};
