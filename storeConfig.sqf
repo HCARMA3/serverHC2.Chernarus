@@ -1594,8 +1594,6 @@ headArray = compileFinal str
 	["CDF PASGT (Tri-Color Mountain)", "CUP_H_CDF_H_PASGT_MNT", 150, "hat"],
 	["CDF PASGT (UN)", "CUP_H_CDF_H_PASGT_UN", 150, "hat"],
 	
-	
-	
 	/*"CUP_H_GER_Boonie_desert",
     "CUP_H_GER_Boonie_Flecktarn",
     "CUP_H_NAPA_Fedora",

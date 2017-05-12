@@ -16,7 +16,7 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=96;
+		nextID=98;
 	};
 	class Camera
 	{
@@ -11076,7 +11076,6 @@ class Mission
 			name="Roadblock_8";
 			type="Empty";
 			colorName="ColorUNKNOWN";
-			angle=110.55623;
 			id=890;
 			atlOffset=-5.0054016;
 		};
