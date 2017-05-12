@@ -8,7 +8,7 @@ class EditorData
 	toggles=73;
 	class ItemIDProvider
 	{
-		nextID=908;
+		nextID=909;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=96;
+		nextID=98;
 	};
 	class Camera
 	{
-		pos[]={10752.765,251.89217,12369.387};
-		dir[]={0.009098283,-0.99994999,0.0041493201};
-		up[]={0.90980285,0.00999978,0.41492039};
-		aside[]={0.41494113,0,-0.90984833};
+		pos[]={10751.963,298.93616,12374.604};
+		dir[]={0.58267045,-0.70612139,0.40235752};
+		up[]={0.58105028,0.70808804,0.40123877};
+		aside[]={0.56822747,-5.9371814e-008,-0.82287395};
 	};
 };
 binarizationWanted=0;
@@ -159,6 +159,55 @@ randomSeed=3783014;
 class ScenarioData
 {
 	author="AgentRev";
+	class Header
+	{
+		gameType="Sandbox";
+		maxPlayers=50;
+	};
+};
+class CustomAttributes
+{
+	class Category0
+	{
+		name="Multiplayer";
+		class Attribute0
+		{
+			property="RespawnTemplates";
+			expression="true";
+			class Value
+			{
+				class data
+				{
+					class type
+					{
+						type[]=
+						{
+							"ARRAY"
+						};
+					};
+					class value
+					{
+						items=1;
+						class Item0
+						{
+							class data
+							{
+								class type
+								{
+									type[]=
+									{
+										"STRING"
+									};
+								};
+								value="None";
+							};
+						};
+					};
+				};
+			};
+		};
+		nAttributes=1;
+	};
 };
 class Mission
 {
@@ -11076,7 +11125,7 @@ class Mission
 			name="Roadblock_8";
 			type="Empty";
 			colorName="ColorUNKNOWN";
-			angle=110.55623;
+			angle=110.55622;
 			id=890;
 			atlOffset=-5.0054016;
 		};
