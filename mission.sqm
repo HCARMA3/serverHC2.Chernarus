@@ -11076,6 +11076,7 @@ class Mission
 			name="Roadblock_8";
 			type="Empty";
 			colorName="ColorUNKNOWN";
+			angle=110.55621;
 			id=890;
 			atlOffset=-5.0054016;
 		};
