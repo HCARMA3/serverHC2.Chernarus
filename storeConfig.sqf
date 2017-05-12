@@ -1570,7 +1570,7 @@ headArray = compileFinal str
 	["Gas Mask - MASCARA DE GAS", "H_CrewHelmetHeli_O", 1000, "hat"],
 	["Gas Mask - MASCARA DE GAS", "H_CrewHelmetHeli_I", 1000, "hat"],
 	//CUP HEAD
-	["===========ARMA 2 HEADGEAR===========", "CUP_weapon_hgun_PB6P9", 0],
+	["=========ARMA 2 HEADGEAR===========", "CUP_weapon_hgun_PB6P9", 0],
 	["Ushanka (Dark Brown)", "CUP_H_C_Ushanka_01", 50, "hat"],
     ["Ushanka (Green)", "CUP_H_C_Ushanka_02", 50, "hat"],
     ["Ushanka (Light Brown)", "CUP_H_C_Ushanka_03", 50, "hat"],
@@ -1580,12 +1580,23 @@ headArray = compileFinal str
     ["Beanie (Brown/Yellow)", "CUP_H_C_Beanie_03", 50, "hat"],
     ["Beanie (Dark Brown)", "CUP_H_C_Beanie_04", 50, "hat"],
 	
-	["", "CUP_H_C_Beret_01", 50, "hat"],
-	/*
-    "CUP_H_C_Beret_02",
-    "CUP_H_C_Beret_03",
-    "CUP_H_C_Beret_04",
-    "CUP_H_GER_Boonie_desert",
+	["Beret (Darck Brown)", "CUP_H_C_Beret_01", 50, "hat"],
+	["Beret (Light Brown)", "CUP_H_C_Beret_02", 50, "hat"],
+    ["Beret (Purple/Gold)", "CUP_H_C_Beret_03", 50, "hat"],
+    ["Beret (Brown Check)", "CUP_H_C_Beret_04", 50, "hat"],
+    ["Firefighter Helmet", "CUP_H_C_Fireman_Helmet_01", 150, "hat"],
+	["CAP (Maga)", "CUP_H_C_MAGA_01", 50, "hat"],
+	["Police Cap", "CUP_H_C_Policecap_01", 150, "hat"],
+	["Cap (TrackIR)", "CUP_H_C_TrackIR_01", 150, "hat"],
+	["Beret (UN)", "CUP_H_CDF_Beret_UN", 150, "hat"],
+	["CDF PASGT (Tri-Color Desert)", "CUP_H_CDF_H_PASGT_DST", 150, "hat"],
+	["CDF PASGT (Tri-Color Forest)", "CUP_H_CDF_H_PASGT_FST", 150, "hat"],
+	["CDF PASGT (Tri-Color Mountain)", "CUP_H_CDF_H_PASGT_MNT", 150, "hat"],
+	["CDF PASGT (UN)", "CUP_H_CDF_H_PASGT_UN", 150, "hat"],
+	
+	
+	
+	/*"CUP_H_GER_Boonie_desert",
     "CUP_H_GER_Boonie_Flecktarn",
     "CUP_H_NAPA_Fedora",
     "CUP_H_PMC_PRR_Headset",

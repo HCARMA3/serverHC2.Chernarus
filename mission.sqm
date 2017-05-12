@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=92;
+		nextID=96;
 	};
 	class Camera
 	{
-		pos[]={10733.961,258.04318,12389.881};
-		dir[]={0.32028154,-0.59225768,-0.73937899};
-		up[]={0.23541935,0.80573648,-0.54347217};
-		aside[]={-0.91762042,-3.6740676e-007,-0.39749178};
+		pos[]={10752.765,251.89217,12369.387};
+		dir[]={0.009098283,-0.99994999,0.0041493201};
+		up[]={0.90980285,0.00999978,0.41492039};
+		aside[]={0.41494113,0,-0.90984833};
 	};
 };
 binarizationWanted=0;
@@ -31,7 +31,6 @@ addons[]=
 {
 	"A3_Characters_F",
 	"A3_Ui_F",
-	"A3_Structures_F_EPA_Mil_Scrapyard",
 	"A3_Structures_F_EPC_Civ_Accessories",
 	"A3_Structures_F_Ind_Shed",
 	"A3_Structures_F_Ind_CarService",
@@ -55,7 +54,7 @@ class AddonsMetaData
 {
 	class List
 	{
-		items=17;
+		items=16;
 		class Item0
 		{
 			className="A3_Characters_F";
@@ -72,91 +71,84 @@ class AddonsMetaData
 		};
 		class Item2
 		{
-			className="A3_Structures_F_EPA";
-			name="Arma 3 Survive Episode - Buildings and Structures";
-			author="Bohemia Interactive";
-			url="https://www.arma3.com";
-		};
-		class Item3
-		{
 			className="A3_Structures_F_EPC";
 			name="Arma 3 Win Episode - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item4
+		class Item3
 		{
 			className="A3_Structures_F_Ind";
 			name="Arma 3 - Industrial Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item5
+		class Item4
 		{
 			className="A3_Structures_F_Mil";
 			name="Arma 3 - Military Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item6
+		class Item5
 		{
 			className="CUP_Misc3_Config";
 			name="CUP_Misc3_Config";
 		};
-		class Item7
+		class Item6
 		{
 			className="A3_Structures_F";
 			name="Arma 3 - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item8
+		class Item7
 		{
 			className="CUP_CAMisc_E_WF";
 			name="CUP_CAMisc_E_WF";
 		};
-		class Item9
+		class Item8
 		{
 			className="CUP_StandaloneTerrains_Core_Faction";
 			name="CUP_StandaloneTerrains_Core_Faction";
 		};
-		class Item10
+		class Item9
 		{
 			className="A3_Structures_F_Households";
 			name="Arma 3 - Houses";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item11
+		class Item10
 		{
 			className="A3_Data_F";
 			name="Arma 3 - Main Configuration";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item12
+		class Item11
 		{
 			className="CUP_CAMisc";
 			name="CUP_CAMisc";
 		};
-		class Item13
+		class Item12
 		{
 			className="CUP_CABuildings_Misc";
 			name="CUP_CABuildings_Misc";
 		};
-		class Item14
+		class Item13
 		{
 			className="CUP_CAMP_Armory_Misc_Concrete_Wall";
 			name="CUP_CAMP_Armory_Misc_Concrete_Wall";
 		};
-		class Item15
+		class Item14
 		{
 			className="A3_Modules_F_Curator";
 			name="Arma 3 Zeus Update - Scripted Modules";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item16
+		class Item15
 		{
 			className="CUP_Weapons_AmmoBoxes";
 			name="CUP_Weapons_AmmoBoxes";
@@ -166,7 +158,7 @@ class AddonsMetaData
 randomSeed=3783014;
 class ScenarioData
 {
-	author="AgentRev/SniperNoSniping";
+	author="AgentRev";
 };
 class Mission
 {
@@ -5452,7 +5444,7 @@ class Mission
 			name="VanillaLayer";
 			class Entities
 			{
-				items=17;
+				items=16;
 				class Item0
 				{
 					dataType="Marker";
@@ -5627,26 +5619,9 @@ class Mission
 					angle=343.25134;
 					id=431;
 				};
-				class Item16
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={10737.155,250.7813,12382.415};
-						angles[]={6.232553,0,6.2418733};
-					};
-					side="Empty";
-					flags=4;
-					class Attributes
-					{
-						init="call{[this] call A3W_fnc_setupMissionObject; this setVariable ['is_storage', true]; this setVariable ['persistent', true]}";
-					};
-					id=907;
-					type="Land_PaperBox_open_full_F";
-				};
 			};
 			id=415;
-			atlOffset=-138.34546;
+			atlOffset=-85.491768;
 		};
 		class Item225
 		{
@@ -11101,7 +11076,7 @@ class Mission
 			name="Roadblock_8";
 			type="Empty";
 			colorName="ColorUNKNOWN";
-			angle=110.55625;
+			angle=110.55623;
 			id=890;
 			atlOffset=-5.0054016;
 		};
@@ -11134,7 +11109,7 @@ class Mission
 			name="Sniper_1";
 			type="Empty";
 			colorName="ColorCIV";
-			angle=205.38663;
+			angle=205.38661;
 			id=893;
 		};
 		class Item437
