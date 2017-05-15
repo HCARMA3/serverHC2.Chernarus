@@ -7,40 +7,40 @@
 A3W_smallVehicles =
 [
 	"C_Quadbike_01_F",
-	["B_Quadbike_01_F", "O_Quadbike_01_F", "I_Quadbike_01_F", "I_G_Quadbike_01_F"]
+	["CUP_C_Datsun_Covered", "CUP_B_M1030_USMC", "CUP_C_SUV_CIV", "CUP_B_M1030_USMC"]
 ];
 
 //Civilian Vehicle List - Random Spawns
 civilianVehicles =
 [
-	"C_Hatchback_01_F",
-	"C_Hatchback_01_sport_F",
-	"C_SUV_01_F",
-	"C_Offroad_01_F",
-	["C_Van_01_box_F", "C_Van_01_transport_F"]
+	"CUP_B_LR_Ambulance_CZ_D",
+	"CUP_B_UAZ_Open_ACR",
+	"CUP_B_LR_Transport_CZ_W",
+	"CUP_B_UAZ_Unarmed_ACR",
+	["CUP_B_UAZ_Open_ACR", "CUP_C_Skoda_Blue_CIV"]
 ];
 
 //Light Military Vehicle List - Random Spawns
 lightMilitaryVehicles =
 [
-	["I_G_Offroad_01_F", "I_G_Offroad_01_armed_F"]
+	["CUP_B_HMMWV_M2_USMC", "CUP_B_RG31_M2_USMC"]
 ];
 
 //Medium Military Vehicle List - Random Spawns
 mediumMilitaryVehicles =
 [
-	"B_MRAP_01_F",
-	"O_MRAP_02_F",
-	"I_MRAP_03_F"
+	"CUP_B_HMMWV_M2_NATO_T",
+	"CUP_B_HMMWV_SOV_M2_NATO_T",
+	"CUP_I_Datsun_PK_Random"
 ];
 
 //Water Vehicles - Random Spawns
 waterVehicles =
 [
-	"C_Boat_Civil_01_F",
-	"C_Boat_Civil_01_F",
-	["C_Boat_Civil_01_police_F", "C_Boat_Civil_01_rescue_F"],
-	["B_Boat_Armed_01_minigun_F", "O_Boat_Armed_01_hmg_F", "I_Boat_Armed_01_minigun_F"]
+	"CUP_C_Fishing_Boat_Chernarus",
+	"CUP_C_PBX_CIV",
+	["CUP_C_Zodiac_CIV", "C_Boat_Civil_01_rescue_F"],
+	["CUP_B_RHIB_USMC", "CUP_B_RHIB2Turret_USMC", "I_Boat_Armed_01_minigun_F"]
 ];
 
 //Object List - Random Spawns.
@@ -55,11 +55,11 @@ staticWeaponsList =
 //Object List - Random Helis.
 staticHeliList =
 [
-	"C_Heli_Light_01_civil_F",
+	"CUP_I_MH6J_RACS",
 	"C_Heli_Light_01_civil_F",
 	"B_Heli_Light_01_F",
-	"O_Heli_Light_02_unarmed_F",
-	"I_Heli_light_03_unarmed_F"
+	"CUP_C_MI6A_RU",
+	"CUP_I_MH6M_ION"
 	// don't put cargo helicopters here, it doesn't make sense to find them in towns; they spawn in the CivHeli mission
 ];
 
@@ -67,8 +67,8 @@ staticHeliList =
 staticPlaneList =
 [
 	//["B_Plane_CAS_01_F", "O_Plane_CAS_02_F"],
-	"I_Plane_Fighter_03_AA_F",
-	"C_Plane_Civil_01_F"
+	"CUP_I_C130J_AAF",
+	"CUP_C_AN2_CIV"
 ];
 
 //Random Weapon List - Change this to what you want to spawn in cars.

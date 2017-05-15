@@ -5,10 +5,10 @@ class EditorData
 	angleGridStep=0.2617994;
 	scaleGridStep=0.1;
 	autoGroupingDist=10;
-	toggles=73;
+	toggles=585;
 	class ItemIDProvider
 	{
-		nextID=908;
+		nextID=1190;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=98;
+		nextID=106;
 	};
 	class Camera
 	{
-		pos[]={10752.765,251.89217,12369.387};
-		dir[]={0.009098283,-0.99994999,0.0041493201};
-		up[]={0.90980285,0.00999978,0.41492039};
-		aside[]={0.41494113,0,-0.90984833};
+		pos[]={12157.787,168.76367,12677.424};
+		dir[]={0.80387825,-0.47023502,-0.36457798};
+		up[]={0.42832148,0.88251561,-0.19425258};
+		aside[]={-0.41303918,-3.3513643e-006,-0.91076791};
 	};
 };
 binarizationWanted=0;
@@ -4656,7 +4656,7 @@ class Mission
 			colorName="ColorGUER";
 			angle=241.23779;
 			id=315;
-			atlOffset=239.41925;
+			atlOffset=239.41937;
 		};
 		class Item156
 		{
@@ -4710,7 +4710,7 @@ class Mission
 			colorName="ColorGUER";
 			angle=246.56616;
 			id=320;
-			atlOffset=95.91925;
+			atlOffset=95.919281;
 		};
 		class Item161
 		{

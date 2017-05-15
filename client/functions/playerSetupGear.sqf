@@ -38,20 +38,20 @@ _player removeItems "Medikit";
 _player linkItem "NVGoggles";
 
 // Add Backpack
-_player addBackpack "B_AssaultPack_rgr";
+_player addBackpack "CUP_B_AssaultPack_Coyote";
 
 switch (true) do
 {
 	case (["_medic_", typeOf _player] call fn_findString != -1):
 	{
-		_player addWeapon "Binocular";
-		_player addMagazine "30Rnd_9x21_Mag";
-		_player addWeapon "SMG_02_F";
-		_player addMagazine "30Rnd_9x21_Mag";
-		_player addPrimaryWeaponItem "acc_flashlight";
-		_player addMagazine "9Rnd_45ACP_Mag";
-		_player addWeapon "hgun_ACPC2_F";
-		_player addMagazine "9Rnd_45ACP_Mag";
+		_player addWeapon "CUP_Binocular_Vector";
+		_player addMagazine "CUP_30Rnd_9x19_MP5";
+		_player addWeapon "CUP_smg_MP5A5";
+		_player addMagazine "CUP_30Rnd_9x19_MP5";
+	//_player addPrimaryWeaponItem "acc_flashlight";
+		_player addMagazine "CUP_8Rnd_9x18_MakarovSD_M";
+		_player addWeapon "CUP_hgun_PB6P9_snds";
+		_player addMagazine "CUP_8Rnd_9x18_MakarovSD_M";
 		_player addItem "Medikit";
 		_player addItem "FirstAidKit";
 		_player addItem "SmokeShell";
