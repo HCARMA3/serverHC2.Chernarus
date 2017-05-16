@@ -58,31 +58,32 @@ switch (true) do
 	};
 	case (["_engineer_", typeOf _player] call fn_findString != -1):
 	{
-		_player addWeapon "Binocular";
-		_player addMagazine "30Rnd_556x45_Stanag_Tracer_Yellow";
-		_player addMagazine "UGL_FlareWhite_F";
-		_player addWeapon "arifle_Mk20_GL_plain_F";
-		_player addMagazine "30Rnd_556x45_Stanag_Tracer_Yellow";
-		_player addPrimaryWeaponItem "acc_flashlight";
-		_player addMagazine "9Rnd_45ACP_Mag";
-		_player addWeapon "hgun_ACPC2_F";
-		_player addMagazine "9Rnd_45ACP_Mag";
+		_player addWeapon "CUP_Binocular_Vector";
+		_player addMagazine "CUP_30Rnd_556x45_Stanag";
+		//_player addMagazine "UGL_FlareWhite_F";
+		_player addWeapon "CUP_arifle_M16A2";
+		_player addMagazine "CUP_30Rnd_556x45_Stanag";
+		_player addPrimaryWeaponItem "CUP_muzzle_snds_M16";
+		_player addMagazine "CUP_17Rnd_9x19_glock17";
+		_player addWeapon "CUP_hgun_glock17_flashlight_snds";
+		_player addMagazine "CUP_17Rnd_9x19_glock17";
 		_player addItem "MineDetector";
 		_player addItem "Toolkit";
 		_player addItem "SmokeShell";
 	};
 	case (["_sniper_", typeOf _player] call fn_findString != -1):
 	{
-		_player addWeapon "Binocular";
-		_player addMagazine "10Rnd_762x54_Mag";
-		_player addWeapon "srifle_DMR_01_F";
-		_player addMagazine ["10Rnd_762x54_Mag", 5];
-		_player addPrimaryWeaponItem "optic_MRCO";
-		_player addPrimaryWeaponItem "acc_pointer_IR";
-		_player addMagazine "9Rnd_45ACP_Mag";
-		_player addWeapon "hgun_ACPC2_F";
-		_player addWeaponItem ["hgun_ACPC2_F", "muzzle_snds_acp"];
-		_player addMagazine "9Rnd_45ACP_Mag";
+		_player addWeapon "CUP_Binocular_Vector";
+		_player addMagazine "CUP_5Rnd_762x51_M24";
+		_player addMagazine "CUP_5Rnd_762x51_M24";
+		_player addWeapon "CUP_srifle_M24_ghillie";
+		_player addMagazine ["CUP_5Rnd_762x51_M24", 5];
+		//_player addPrimaryWeaponItem "optic_MRCO";
+		//_player addPrimaryWeaponItem "acc_pointer_IR";
+		_player addMagazine "CUP_7Rnd_45ACP_1911";
+		_player addWeapon "CUP_hgun_Colt1911_snds";
+		//_player addWeaponItem ["hgun_ACPC2_F", "muzzle_snds_acp"];
+		_player addMagazine "CUP_7Rnd_45ACP_1911";
 		_player addItem "MiniGrenade";
 	};
 	case (["_diver_", typeOf _player] call fn_findString != -1):
