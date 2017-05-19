@@ -2689,10 +2689,18 @@ landArray = compileFinal str
 	// SKIPSAVE = will not be autosaved until first manual force save, good for cheap vehicles that usually get abandoned
 	//Cup Vehicles
 ["==========ARMA 2 VEHICLES===========", "CUP_weapon_hgun_PB6P9", 0],
+["Skoda 105 L", "CUP_C_Skoda_Blue_CIV", 2500, "vehicle"],
+["Datsun 620 Pickup (Corvered)", "CUP_C_Datsun_Covered", 2600, "vehicle"],
+["Datsun 620 Pickup (Old)", "CUP_C_Datsun_Plain", 2500, "vehicle"],
+["Datsun 620 Pickup (Tuberframe)", "CUP_C_Datsun_Tubeframe", 2500, "vehicle"],
+["Golf Red", "CUP_C_Golf4_red_Civ", 1500, "vehicle"],
+["Bus Ikarus 260", "CUP_C_Ikarus_Chernarus", 2500, "vehicle"],
+["BTR-40 (Unamerd)", "CUP_I_BTR40_TKG", 4800, "vehicle"],
 ["HMMWV (Transport)", "CUP_B_HMMWV_Transport_NATO_T", 4800, "vehicle"],
 ["HMMWV (UAV Terminal)", "CUP_B_HMMWV_Terminal_NATO_T", 4800, "vehicle"],
 ["HMMWV (Unarmed)", "CUP_B_HMMWV_Unarmed_NATO_T", 4800, "vehicle"],
 ["HMMWV Ambulance", "CUP_B_HMMWV_Ambulance_ACR", 3500, "vehicle", "SKIPSAVE"],
+["GAZ Vodnik (Medical)", "CUP_O_GAZ_Vodnik_MedEvac_RU", 5500, "vehicle"],
 ["Land Rover (Ambulance) Desert", "CUP_B_LR_Ambulance_CZ_D", 3500, "vehicle", "SKIPSAVE"],
 ["Land Rover (Ambulance) Woodland", "CUP_B_LR_Ambulance_CZ_W", 3500, "vehicle", "SKIPSAVE"],
 ["Land Rover (Transport) Desert", "CUP_B_LR_Transport_CZ_D", 4500, "vehicle", "SKIPSAVE"],
@@ -2710,6 +2718,7 @@ landArray = compileFinal str
 ["Tatra T810 (Fuel)", "CUP_B_T810_Refuel_CZ_WDL", 4800, "vehicle"],
 ["Tatra T810 (Repair)", "CUP_B_T810_Repair_CZ_WDL", 4800, "vehicle"],
 ["Towing Tractor", "CUP_B_TowingTractor_USMC", 1500, "vehicle", "SKIPSAVE"],
+["SUV", "CUP_I_SUV_ION", 1500, "vehicle"],
 ["UAZ (Open)", "CUP_B_UAZ_Open_ACR", 4500, "vehicle"],
 ["UAZ (Unarmed)", "CUP_B_UAZ_Unarmed_ACR", 4500, "vehicle"],
 ["Ural (Ammo)", "CUP_B_Ural_Reammo_CDF", 5500, "vehicle"],
@@ -2721,7 +2730,7 @@ landArray = compileFinal str
 
 ["===========ARMA 2 DRONES===========", "CUP_weapon_hgun_PB6P9", 0],
 ["AH6X Littlebird ULB", "CUP_B_AH6X_USA", 25000, "vehicle"],
-["Pchela-1T", "CUP_B_Pchela1T_CDF", 25000, "vehicle"],
+["Pchela-1T", "CUP_B_Pchela1T_CDF", 10000, "vehicle"],
 	
 	
 	//Arma 3 vehicles
@@ -2789,11 +2798,17 @@ armoredArray = compileFinal str
 [
 	// Cup VEHICLES
 	["==========ARMA 2 VEHICLES===========", "CUP_weapon_hgun_PB6P9", 0],
+	["BTR-40 (DSHKM)", "CUP_I_BTR40_MG_TKG", 35500, "vehicle"],
+	["BTR-60PB", "CUP_I_BTR60_UN", 65000, "vehicle"],
 	["BRDM-2 (HQ)", "CUP_B_BRDM2_HQ_CZ", 65000, "vehicle"],
 ["BRDM-2", "CUP_B_BRDM2_CZ", 70000, "vehicle"],
 ["Coyote GMG WoodLand", "CUP_B_BAF_Coyote_GMG_W", 50000, "vehicle"],
+["Datsun 620 Pickup (PK)", "CUP_I_Datsun_PK", 13500, "vehicle"],
 ["Dingo 2 (GL)", "CUP_B_Dingo_GL_CZ_Wdl", 65000, "vehicle"],
 ["Dingo 2 (MG)", "CUP_B_Dingo_CZ_Wdl", 60000, "vehicle"],
+["GAZ Vodnik (2x PKM)", "CUP_O_GAZ_Vodnik_PK_RU", 15500, "vehicle"],
+["GAZ Vodnik (AGS-30/PKM)", "CUP_O_GAZ_Vodnik_AGS_RU", 25500, "vehicle"],
+["GAZ Vodnik (BPPU)", "CUP_O_GAZ_Vodnik_BPPU_RU", 35500, "vehicle"],
 ["HMMWV Avenger", "CUP_B_HMMWV_Avenger_NATO_T", 50000, "vehicle"],
 ["HMMWV CROWS M2", "CUP_B_HMMWV_Crows_M2_NATO_T", 60000, "vehicle"],
 ["HMMWV CROWS MK19 GMG", "CUP_B_HMMWV_Crows_MK19_NATO_T", 70000, "vehicle"],
@@ -2834,6 +2849,7 @@ armoredArray = compileFinal str
 ["Ridgback PPV GMG Woodland", "CUP_B_Ridgback_GMG_GB_W", 60000, "vehicle"],
 ["Ridgback PPV HMG WoodLand", "CUP_B_Ridgback_HMG_GB_W", 50000, "vehicle"],
 ["Ridgback PPV LMG Woodland", "CUP_B_Ridgback_LMG_GB_W", 50000, "vehicle"],
+["SUV Armored", "CUP_I_SUV_Armored_ION", 35000, "vehicle"],
 ["UAZ (AGS-30)", "CUP_B_UAZ_AGS30_ACR", 30000, "vehicle"],
 ["UAZ (DShKM)", "CUP_B_UAZ_MG_ACR", 25000, "vehicle"],
 ["UAZ (Metis-M)", "CUP_B_UAZ_METIS_ACR", 25000, "vehicle"],
@@ -2889,6 +2905,7 @@ tanksArray = compileFinal str
 ["M7 Bradley", "CUP_B_M7Bradley_USA_D", 75000, "vehicle"],
 ["MCV-80 Warrior (Slat)", "CUP_B_MCV80_GB_W_SLAT", 90000, "vehicle"],
 ["MCV-80 Warrior", "CUP_B_MCV80_GB_W", 85000, "vehicle"],
+["T-43-85M", "CUP_I_T34_TK_GUE", 75000, "vehicle"],
 ["T-55", "CUP_O_T55_CSAT", 300000, "vehicle"],
 ["T-72", "CUP_B_T72_CDF", 310000, "vehicle"],
 ["T-72M4CZ", "CUP_B_T72_CZ", 315000, "vehicle"],
@@ -2966,6 +2983,8 @@ helicoptersArray = compileFinal str
 	["UH-60M (FFV)", "CUP_B_UH60M_FFV_US", 27000, "vehicle"],
 	["UH-60M (Unarmed)", "CUP_B_UH60M_Unarmed_US", 12000, "vehicle"],
 	["UH-60M", "CUP_B_UH60M_US", 25000, "vehicle"],
+	["Ka-50 Black Shark (AT)", "CUP_O_Ka50_RU", 325000, "vehicle"],
+	["Ka-50 Black Shark (AA)", "CUP_O_Ka50_AA_RU", 345000, "vehicle"],
 	
 	//Arma 3 VEHICLES
 	["==========ARMA 3 VEHICLES===========", "CUP_weapon_hgun_PB6P9", 0],
@@ -2996,7 +3015,7 @@ helicoptersArray = compileFinal str
 	["WY-55 Hellcat (Armed)", "I_Heli_light_03_F", 120000, "vehicle"], // Armed AW159
 	["AH-99 Blackfoot", "B_Heli_Attack_01_F", 550000, "vehicle"], // RAH-66 with gunner
 	["Mi-48 Kajman", "O_Heli_Attack_02_F", 550000, "vehicle"], // Mi-28 with gunner
-
+	
 	["MQ-12 Falcon UAV", "B_T_UAV_03_F", 250000, "vehicle"]
 ];
 
@@ -3004,9 +3023,11 @@ planesArray = compileFinal str
 [
 	//Cup VEHICLES
 	["==========ARMA 2 VEHICLES===========", "CUP_weapon_hgun_PB6P9", 0],
+	["Antonov An-2 (A3polliport)", "CUP_C_AN2_CIV", 7900, "vehicle"],
 	["C-130J", "CUP_B_C130J_GB", 7900, "vehicle"],
 	["C-47 Skytrain", "CUP_B_C47_USA", 27800, "vehicle"],
 	["AC-47D Spooky", "CUP_B_AC47_Spooky_USA", 30000, "vehicle"],
+	["AV-8B Harrier II (Mk82)", "CUP_I_AV8B_MK82_AAF", 320000, "vehicle"],
 	["L-39ZA (CAP)", "CUP_B_L39_CAP_CZ", 232000, "vehicle"],
 	["Harrier GR.9 (AGM-65)", "CUP_B_GR9_AGM_GB", 320000, "Vehicle"],
 	["Harrier GR.9 (CAP)", "CUP_B_GR9_CAP_GB", 330000, "vehicle"],
@@ -3018,6 +3039,8 @@ planesArray = compileFinal str
 	["F-35B Lightning II (CAS)", "CUP_B_F35B_CAS_BAF", 460000, "vehicle"],
 	["F-35B Lightning II (LGB)", "CUP_B_F35B_LGB_BAF", 460000, "vehicle"],
 	["MQ-9 Reaper (UAV)", "CUP_B_USMC_MQ9", 290000, "vehicle"],
+	["Su-25T Frogfoot", "CUP_O_Su25_RU_1", 320000, "vehicle"],
+	["Su-34 (AGM)", "CUP_O_SU34_AGM_RU", 320000, "vehicle"],
 	
 	// Arma 3 VEHICLES
 	["==========ARMA 3 VEHICLES===========", "CUP_weapon_hgun_PB6P9", 0],
@@ -3031,15 +3054,23 @@ planesArray = compileFinal str
 	["V-44 X Blackfish (Infantry)", "B_T_VTOL_01_infantry_F", 20000, "vehicle"],
 	["V-44 X Blackfish (Gunship)", "B_T_VTOL_01_armed_F", 550000, "vehicle"],
 	["Y-32 Xi'an", "O_T_VTOL_02_infantry_F", 590000, "vehicle"],
-
+	
+	//Jets DLC
+	["A-149 Gryphon", "I_Plane_Fighter_04_F", 250000, "vehicle"],
+	["To-201 Shikra", "O_Plane_Fighter_02_F", 700000, "vehicle"],
+	["To-201 Shikra (Stealth)", "O_Plane_Fighter_02_Stealth_F", 750000, "vehicle"],
+	["F/A-181 Black Wasp II", "B_Plane_Fighter_01_F", 800000, "vehicle"],
+	["F/A-181 Black Wasp II (Stealth)", "B_Plane_Fighter_01_Stealth_F", 850000, "vehicle"],
+	//UAV
 	["MQ4A Greyhawk Missile UAV", "B_UAV_02_F", 240000, "vehicle"],
 	["MQ4A Greyhawk Bomber UAV", "B_UAV_02_CAS_F", 225000, "vehicle"], // Bomber UAVs are a lot harder to use, hence why they are cheaper than Missile ones
 	["K40 Ababil-3 Missile UAV", "O_UAV_02_F", 240000, "vehicle"],
 	["K40 Ababil-3 Bomber UAV", "O_UAV_02_CAS_F", 225000, "vehicle"],
 	["K40 Ababil-3 Missile UAV", "I_UAV_02_F", 240000, "vehicle"],
 	["K40 Ababil-3 Bomber UAV", "I_UAV_02_CAS_F", 225000, "vehicle"],
-
-	["KH-3A Fenghuang UAV", "O_T_UAV_04_CAS_F", 240000, "vehicle"]
+	["KH-3A Fenghuang UAV", "O_T_UAV_04_CAS_F", 240000, "vehicle"],
+	//UAV Jets
+	["UCAV Sentinel", "B_UAV_05_F", 120000, "vehicle"]
 ];
 
 boatsArray = compileFinal str
