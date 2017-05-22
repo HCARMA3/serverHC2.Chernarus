@@ -16,7 +16,7 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=120;
+		nextID=122;
 	};
 	class Camera
 	{
@@ -297,11 +297,14 @@ class ScenarioData
 {
 	author="AgentRev";
 };
+class CustomAttributes
+{
+};
 class Mission
 {
 	class Intel
 	{
-		briefingName="A3Wasteland Chernarus v1.3b";
+		briefingName="A3Wasteland Chernarus v1.3c";
 		overviewText="Wasteland survival sandbox by Team Wasteland - visit A3Wasteland.com for more details";
 		resistanceWest=0;
 		timeOfChanges=3e+038;
@@ -4466,7 +4469,7 @@ class Mission
 			colorName="ColorGUER";
 			angle=237.99345;
 			id=317;
-			atlOffset=239.41956;
+			atlOffset=239.41937;
 		};
 		class Item145
 		{
@@ -4498,7 +4501,7 @@ class Mission
 			colorName="ColorGUER";
 			angle=246.56616;
 			id=320;
-			atlOffset=95.919373;
+			atlOffset=95.919281;
 		};
 		class Item148
 		{
@@ -12121,7 +12124,7 @@ class Mission
 			};
 			id=1339;
 			type="76n6ClamShell";
-			atlOffset=-9.1552734e-005;
+			atlOffset=-6.1035156e-005;
 		};
 		class Item492
 		{
@@ -13488,7 +13491,7 @@ class Mission
 			};
 			id=1384;
 			type="zed_desert";
-			atlOffset=-0.00015258789;
+			atlOffset=-0.00018310547;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -13528,7 +13531,7 @@ class Mission
 			};
 			id=1385;
 			type="zed_desert";
-			atlOffset=-6.1035156e-005;
+			atlOffset=-9.1552734e-005;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -14054,7 +14057,7 @@ class Mission
 			};
 			id=1400;
 			type="CampEastC";
-			atlOffset=9.1552734e-005;
+			atlOffset=3.0517578e-005;
 			class CustomAttributes
 			{
 				class Attribute0
