@@ -603,6 +603,7 @@ rifleArray = compileFinal str
 
 lmgArray = compileFinal str
 [
+	// RHS LMG's
 	/*["FN Minimi Para (RIS)", "rhs_weap_minimi_para_railed", 3600],
 	["M240B", "rhs_weap_m240B", 3700],
 	["M240B (CAP)", "rhs_weap_m240B_CAP", 3700],
@@ -787,7 +788,7 @@ staticGunsArray = compileFinal str
 	["Static AGS-30 Minitripod GL 29Rnd x6", "CUP_I_AGS_TK_GUE", 30000],
 	
 	["Static GBS 70 Tripod AA 6Rnd", "CUP_B_RBS70_ACR", 40000],
-		
+	
 	["Static SPG-9 Minitripod AT 16Rnd x2", "CUP_B_SPG9_CDF", 40000],
 	["Static SPG-9 Minitripod AT 16Rnd X2", "CUP_O_SPG9_SLA", 40000],
 	["Static SPG-9 Minitripod AT 16Rnd x2", "CUP_I_SPG9_NAPA", 40000],
@@ -1773,8 +1774,28 @@ headArray = compileFinal str
 	
     ["SLA Infantry Helmet", "CUP_H_SLA_Helmet", 150, "hat"],
 
+	["Takistani Lungee (Black-SF)", "CUP_H_TK_Lungee", 150, "hat"],
+	["Takistani Lungee (Open, Pattern 1)", "CUP_H_TKI_Lungee_Open_01", 150, "hat"],
+	["Takistani Lungee (Open, Pattern 2)", "CUP_H_TKI_Lungee_Open_02", 150, "hat"],
+	["Takistani Lungee (Open, Pattern 3)", "CUP_H_TKI_Lungee_Open_03", 150, "hat"],
+	["Takistani Lungee (Open, Pattern 4)", "CUP_H_TKI_Lungee_Open_04", 150, "hat"],
+	["Takistani Lungee (Open, Pattern 5)", "CUP_H_TKI_Lungee_Open_05", 150, "hat"],
+	["Takistani Lungee (Open, Pattern 6)", "CUP_H_TKI_Lungee_Open_06", 150, "hat"],
+	["Takistani Lungee (Pattern 1)", "CUP_H_TKI_Lungee_01", 250, "hat"],
+	["Takistani Lungee (Pattern 2)", "CUP_H_TKI_Lungee_02", 250, "hat"],
+	["Takistani Lungee (Pattern 3)", "CUP_H_TKI_Lungee_03", 250, "hat"],
+	["Takistani Lungee (Pattern 4)", "CUP_H_TKI_Lungee_04", 250, "hat"],
+	["Takistani Lungee (Pattern 5)", "CUP_H_TKI_Lungee_05", 250, "hat"],
+	["Takistani Lungee (Pattern 6)", "CUP_H_TKI_Lungee_06", 250, "hat"],
+	["Takistani Skull Cap (Pattern 1)", "CUP_H_TKI_Skullcap_01", 150, "hat"],
+	["Takistani Skull Cap (Pattern 2)", "CUP_H_TKI_Skullcap_02", 150, "hat"],
+	["Takistani Skull Cap (Pattern 3)", "CUP_H_TKI_Skullcap_03", 150, "hat"],
+	["Takistani Skull Cap (Pattern 4)", "CUP_H_TKI_Skullcap_04", 150, "hat"],
+	["Takistani Skull Cap (Pattern 5)", "CUP_H_TKI_Skullcap_05", 150, "hat"],
+	["Takistani Skull Cap (Pattern 6)", "CUP_H_TKI_Skullcap_06", 150, "hat"],
 	["TSh-4 (Brown)", "CUP_H_RUS_TSH_4_Brown", 150, "hat"],
 	["TSh-4 (Black)", "CUP_H_SLA_TankerHelmet", 150, "hat"],
+	
 	["ZSh-1 Combat Helmet (Green)", "CUP_H_RUS_ZSH_1", 150, "hat"],
 	["ZSh-1 Combat Helmet (Goggles/Green)", "CUP_H_RUS_ZSH_1_Goggles", 150, "hat"],
     ["ZSh-7 Pilot Helmet", "CUP_H_SLA_Pilot_Helmet", 150, "hat"],
@@ -2492,6 +2513,15 @@ backpackArray = compileFinal str
 	["Bergen British Assalt Pack", "CUP_B_Bergen_BAF", 350, "backpack"],
 	["US Tactical Backpack (Black)", "CUP_B_USPack_Black", 550, "backpack"],
 	["US TActical Backpack (Coyote)", "CUP_B_USPack_Coyote", 550, "backpack"],
+	["Civilian Assalt Pack (Woodland)", "CUP_B_CivPack_WDL", 550, "backpack"],
+	["Czech Paratrooper Backpack (M95)", "CUP_B_ACRpara_m95", 750, "backpack"],
+	["Czech Scout Pack (m95)", "CUP_B_ACRScout_m95", 250, "backpack"],
+	["Medical German Backpack (Flecktarn)", "CUP_B_GER_Pack_Flecktarn", 550, "backpack"],
+	["MEdical German Backpack (Tropentarn)", "CUP_B_GER_Pack_Tropentarn", 550, "backpack"],
+	["Hiking Pack", "CUP_B_HikingPack_Civ", 750, "backpack"],
+	["Medical Bag (Desert)", "CUP_B_GER_Medic_Desert", 550, "backpack"],
+	["Medical Bag (SLA)", "CUP_B_SLA_Medicbag", 150, "backpack"],
+	["Spetsnaz Bag (Green)", "CUP_B_RUS_Backpack", 250, "backpack"],
 	
 	
 	//["Parachute", "B_Parachute", 200, "backpack"],
@@ -2545,6 +2575,14 @@ genItemArray = compileFinal str
 	["AN/PEQ-1 SOFLAM", "CUP_Laserdesignator", 3500, "binoc"], // Colocar somente em missão
 	["LRTV", "CUP_LRTV", 3500, "binoc"], //Colocar em missão, tem termica
 	["Vector 21 Nite", "CUP_Binocular_Vector", 200, "binoc"],
+	["AN/PVS-14 NVG", "CUP_NVG_PVS14", 500, "nvg"],
+	["HMNVS NVG", "CUP_NVG_HMNVS", 500, "nvg"],
+	["Balaclava (black)", "CUP_RUS_Balaclava_blk", 250, "gogg"],
+	["Balaclava (Green)", "CUP_RUS_Balaclava_grn", 250, "gogg"],
+	["Neck Scarf (Brown)", "CUP_TK_NeckScarf", 250, "gogg"],
+	["Shemagh (Green)", "CUP_FR_Neckscarf", 250, "gogg"],
+	["Shemagh (Khaki)", "CUP_FR_Neckscarf2", 250, "gogg"],
+	
 	
 	//Arma 3 Items
 	["===========ARMA 3 ITEMS===========", "CUP_weapon_hgun_PB6P9", 0],
