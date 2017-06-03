@@ -82,6 +82,8 @@ switch (true) do
 		//_player addPrimaryWeaponItem "acc_pointer_IR";
 		_player addMagazine "CUP_7Rnd_45ACP_1911";
 		_player addWeapon "CUP_hgun_Colt1911_snds";
+		_player addItem "FirstAidKit";
+		_player addItem "FirstAidKit";
 		//_player addWeaponItem ["hgun_ACPC2_F", "muzzle_snds_acp"];
 		_player addMagazine "CUP_7Rnd_45ACP_1911";
 		_player addItem "MiniGrenade";
