@@ -31,6 +31,7 @@ addons[]=
 	"A3_Structures_F_Argo",
 	"A3_Structures_F_Ind_Shed",
 	"A3_Structures_F_Ind_CarService",
+	"cup_weapons_staticweapons",
 	"CUP_Misc3_Config",
 	"A3_Structures_F_Mil_Cargo",
 	"A3_Structures_F_Walls",
