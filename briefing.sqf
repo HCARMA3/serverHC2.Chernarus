@@ -19,11 +19,25 @@ player createDiarySubject ["credits", "Credits"];
 
 player createDiaryRecord ["changelog",
 [
+"v1.4",
+"
+<br/>[Added] Laws of War DLC
+<br/>[Added] Killfeed HUD
+<br/>[Changed] Improved revive system
+<br/>[Changed] Improved kill attribution
+<br/>[Changed] Improved antihack
+<br/>[Fixed] Prone reload freeze
+<br/>[Fixed] Many minor changes and fixes
+"
+]];
+
+player createDiaryRecord ["changelog",
+[
 "v1.3c",
 "
 <br/>[Added] Jets DLC
 <br/>[Added] Aircraft carrier on Stratis
-<br/>[Added] Resupply trucks on Altis and Stratis
+<br/>[Added] Resupply trucks on Chernarus and Stratis
 <br/>[Added] Driver assist
 <br/>[Changed] Aircraft prices
 <br/>[Changed] Blocked explosives near parking and storage
@@ -285,7 +299,7 @@ player createDiaryRecord ["changelog",
 <br/>[Changed] Independent territory capture is now group-based
 <br/>[Changed] Towns blocked if more enemies than friendlies
 <br/>[Changed] Increased ammo/fuel/repair cargo for resupply trucks
-<br/>[Changed] Increased territory capture rewards for Altis
+<br/>[Changed] Increased territory capture rewards for Chernarus
 <br/>[Changed] Increased money mission rewards
 <br/>[Changed] Weapon loot in buildings now disabled by default
 <br/>[Changed] Mission crates loot was made more random
@@ -408,7 +422,7 @@ player createDiaryRecord ["changelog",
 [
 "v0.9b",
 "
-<br/>[Initial release] - Welcome to Altis!
+<br/>[Initial release] - Welcome to Chernarus!
 "
 ]];
 
@@ -533,10 +547,6 @@ player createDiaryRecord ["infos",
 <br/>* When picking a base location, it is best advised to pick a place that is out of the way and not so obvious such as airports, cities, map-bound bases, etc. remember, players randomly spawn in and around towns and could even spawn inside your base should you set it up in a town.
 <br/>
 <br/>* If you spawn in an area with no vehicles or supplies in the immediate area, DO NOT just click respawn from the pause menu, chances are if you search an area of a few hundred meters, you will find something.
-<br/>
-<br/>* Always be on the lookout for nightvision. they are located in the ammo crates, and there are pairs scattered throughout vehicles. You can also purchase them from the gunstores. Nighttime without them SUCKS, and if you have them, you can conduct stealth raids on enemy bases under the cover of complete darkness.
-<br/>
-<br/>* When you set up a base, never leave your supplies unguarded, one guard will suffice, but it is recommended you have at least 2, maybe 3 guards at base at all times.
 <br/>
 <br/>* There are very aggressive AI characters that spawn with most missions and will protect the mission objectives with deadly force, be aware of them.
 "

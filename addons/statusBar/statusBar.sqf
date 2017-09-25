@@ -96,8 +96,8 @@ disableSerialization;
 		//Damage
 			
 		_colourDamage = _colourDefault;
-		if(_damage >= 100) then{_colourDamage = _colour100;};
-		if((_damage >= 90) && (_damage < 100)) then {_colourDamage =  _colour100;};
+		if(_damage >= 100) then{_colourDamage = _colourDefault;};
+		if((_damage >= 90) && (_damage < 100)) then {_colourDamage =  _colour90;};
 		if((_damage >= 80) && (_damage < 90)) then {_colourDamage =  _colour80;};
 		if((_damage >= 70) && (_damage < 80)) then {_colourDamage =  _colour70;};
 		if((_damage >= 60) && (_damage < 70)) then {_colourDamage =  _colour60;};
@@ -176,7 +176,7 @@ disableSerialization;
 			<t shadow='1' shadowColor='#000000' color='%13'><img size='1.6'  shadowColor='#000000' image='addons\statusbar\icons\thirst.paa' color='%13'/> %6%1</t> 
 			<t shadow='1' shadowColor='#000000' color='%15'><img size='1.0'  shadowColor='#000000' image='addons\statusbar\icons\atm.paa' color='%10'/> $%9</t> 
 			<t shadow='1' shadowColor='#000000' color='%10'>FPS: %7</t> 
-			<t shadow='1' shadowColor='#000000' color='%10'><img size='1.6'  shadowColor='#000000' image='addons\statusbar\icons\restart.paa' color='%10'/>%18:%19</t>",
+			<t shadow='1' shadowColor='#000000' color='%10'><img size='1.0'  shadowColor='#000000' image='addons\statusbar\icons\restart.paa' color='%10'/>%18:%19</t>",
 			
 					"%", 
 					count playableUnits,

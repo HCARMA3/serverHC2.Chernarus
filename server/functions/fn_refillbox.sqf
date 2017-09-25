@@ -32,6 +32,57 @@ if (_boxType == "mission_USSpecial2") then { _boxType = "mission_USSpecial" };
 
 switch (_boxType) do
 {
+	case "WOD_SuperBox":
+	{
+		_boxItems =
+		[
+			// Item type, Item class(es), # of items, # of magazines per weapon
+			["itm", ["B_UavTerminal", "O_UavTerminal", "I_UavTerminal"], 3],						
+			["bac", ["B_Bergen_dgtl_F", "B_Bergen_hex_F", "B_Bergen_mcamo_F", "B_Bergen_tna_F"], 4],
+			["bac", ["B_Carryall_khk", "B_Carryall_mcamo", "B_Carryall_oli", "B_Carryall_oucamo", "B_Carryall_ghex_F"], 5],			
+			["bac", ["B_UAV_01_backpack_F", "O_UAV_01_backpack_F", "I_UAV_01_backpack_F"], 5],
+			
+			["itm", "Medikit", 5],
+			["itm", "Toolkit", 5],
+			["itm", "FirstAidKit", 5],
+			["itm", "MineDetector", 5],
+			["itm", ["V_RebreatherIA", "V_RebreatherIR", "V_RebreatherB"], 3],
+			["itm", "optic_tws_mg", 5],
+			["itm", ["optic_LRPS", "optic_LRPS_ghex_F", "optic_LRPS_tna_F"], 3],
+			["itm", "optic_Nightstalker", 5],
+			["itm", "optic_tws", 5],
+
+			["mag", "DemoCharge_Remote_Mag", 5],	
+			["mag", "ATMine_Range_Mag", 5],	
+			["mag", "SatchelCharge_Remote_Mag", 5],
+			
+			["mag", "130Rnd_338_Mag", 10],
+			["mag", "150Rnd_556x45_Drum_Mag_Tracer_F", 10],
+			["mag", "200Rnd_556x45_Box_Tracer_Red_F", 10],
+			["mag", "200Rnd_556x45_Box_Tracer_F", 10],
+			["mag", "200Rnd_65x39_cased_Box_Tracer", 10],
+			["mag", "150Rnd_762x54_Box_Tracer", 10],
+			["mag", "150Rnd_93x64_Mag", 10],
+			["mag", "7Rnd_408_Mag", 10],
+			["mag", "5Rnd_127x108_APDS_Mag", 10],
+			["mag", "20Rnd_650x39_Cased_Mag_F", 10],
+			["mag", "20Rnd_762x51_Mag", 10],
+			["mag", "10Rnd_93x64_DMR_05_Mag", 10],
+			["mag", "NLAW_F", 5],
+			["mag", "RPG7_F", 5],
+			["mag", "RPG32_HE_F", 5],
+			["mag", "Titan_AA", 5],
+			["mag", "Titan_AP", 5],
+			["mag", "Titan_AT", 5],
+			
+			["wep", ["Laserdesignator", "Laserdesignator_03", "Laserdesignator_02"], 3],
+
+			["itm", ["G_Balaclava_TI_blk_F", "G_Balaclava_TI_G_blk_F", "G_Balaclava_TI_tna_F", "G_Balaclava_TI_G_tna_F"], 4],
+			["itm", ["G_Balaclava_blk", "G_Balaclava_combat", "G_Balaclava_lowprofile", "G_Balaclava_oli"], 4],
+			["itm", ["H_HelmetSpecB", "H_HelmetSpecB_blk", "H_HelmetSpecB_snakeskin", "H_HelmetB_Enh_tna_F"], 4],
+			["itm", ["V_PlateCarrierSpec_rgr", "V_PlateCarrierSpec_blk", "V_PlateCarrierSpec_mtp", "V_PlateCarrierSpec_tna_F"], 4]	
+		];
+	};	
 	case "mission_USLaunchers":
 	{
 		_boxItems =
@@ -56,7 +107,7 @@ switch (_boxType) do
 		[
 			// Item type, Item class(es), # of items, # of magazines per weapon
 			["itm", ["optic_MRCO", "optic_Arco", "optic_Hamr", "optic_SOS"], RANDOM_BETWEEN(0,2)],
-			["itm", ["muzzle_snds_M", "muzzle_snds_H", "muzzle_snds_H_MG", "muzzle_snds_B", "muzzle_snds_acp"], RANDOM_BETWEEN(0,3)],
+			["itm", ["muzzle_snds_M", "muzzle_snds_H", "muzzle_snds_H_MG", "muzzle_snds_B", "muzzle_snds_acp", "H_HelmetO_ViperSP_ghex_F"], RANDOM_BETWEEN(0,3)],
 			["wep", ["hgun_Pistol_heavy_01_F", "hgun_Pistol_heavy_02_F", "hgun_Rook40_F"], RANDOM_BETWEEN(1,3), RANDOM_BETWEEN(4,6)],
 			["wep", ["arifle_MXM_F", "srifle_EBR_F", "srifle_DMR_01_F"], RANDOM_BETWEEN(1,3), RANDOM_BETWEEN(4,6)],
 			["wep", ["LMG_Mk200_F", "LMG_Zafir_F"], RANDOM_BETWEEN(1,3), RANDOM_BETWEEN(2,4)],
@@ -86,7 +137,7 @@ switch (_boxType) do
 			["wep", ["srifle_GM6_F", "srifle_GM6_camo_F", "srifle_GM6_ghex_F"], RANDOM_BETWEEN(1,2), RANDOM_BETWEEN(2,5)],
 			["wep", ["Laserdesignator", "Laserdesignator_03"], RANDOM_BETWEEN(0,1)],
 			["wep", "Laserdesignator_02", RANDOM_BETWEEN(0,1)],
-			["itm", ["optic_LRPS", "optic_LRPS_ghex_F", "optic_LRPS_tna_F"], RANDOM_BETWEEN(1,2)],
+			["itm", ["optic_LRPS", "optic_LRPS_ghex_F", "optic_LRPS_tna_F", "H_HelmetO_ViperSP_ghex_F"], RANDOM_BETWEEN(1,2)],
 			["itm", "optic_Nightstalker", RANDOM_BETWEEN(0,1)],
 			["itm", "optic_tws", RANDOM_BETWEEN(0,1)],
 			["mag", "HandGrenade", RANDOM_BETWEEN(0,5)],

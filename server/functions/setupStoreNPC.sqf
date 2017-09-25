@@ -53,6 +53,7 @@ if (hasInterface) then
 	_npc addAction ["<img image='client\icons\money.paa'/> Sell contents", "client\systems\selling\sellCrateItems.sqf", [], 0.98, false, true, "", STORE_ACTION_CONDITION + " && " + SELL_CONTENTS_CONDITION];
 	_npc addAction ["<img image='client\icons\money.paa'/> Sell last vehicle contents", "client\systems\selling\sellVehicleItems.sqf", [], 0.97, false, true, "", STORE_ACTION_CONDITION + " && " + SELL_VEH_CONTENTS_CONDITION];
 	_npc addAction ["<img image='client\icons\money.paa'/> Sell last vehicle", "client\systems\selling\sellVehicle.sqf", [], 0.96, false, true, "", STORE_ACTION_CONDITION + " && " + SELL_VEH_CONTENTS_CONDITION];
+	_npc addAction ["<img image='client\icons\r3f_unlock.paa'/> Buy last vehicle title", "client\systems\selling\acquireVehicle.sqf", [], 0.95, false, true, "", STORE_ACTION_CONDITION + " && " + SELL_VEH_CONTENTS_CONDITION];
 };
 
 if (isServer) then
@@ -187,54 +188,26 @@ if (isServer) then
 
 			if (_bPos isEqualTo [0,0,0]) then
 			{
-				_bPos = getPosATL _npc;
+				_bPos = getPosASL _npc;
 			}
 			else
 			{
+				_bPos = AGLtoASL _bPos;
+
 				if (!isNil "_frontOffset") then
 				{
-					_bPos = ASLtoAGL ((AGLtoASL _bPos) vectorAdd ([[0, _frontOffset, 0], -_pDir] call BIS_fnc_rotateVector2D));
+					_bPos = _bPos vectorAdd ([[0, _frontOffset, 0], -_pDir] call BIS_fnc_rotateVector2D);
 				};
 
-				_npc setPosASL AGLtoASL _bPos;
+				_npc setPosASL _bPos;
 			};
 
-			_desk = [_npc, _bPos, _pDir, _deskDirMod] call _createStoreFurniture;
-			_npc setVariable ["storeNPC_cashDesk", netId _desk, true];
-
 			sleep 1;
-
-			_bbNPC = boundingBoxReal _npc;
-			_bbDesk = boundingBoxReal _desk;
-			_bcNPC = boundingCenter _npc;
-			_bcDesk = boundingCenter _desk;
-
-			_npcHeightRel = (_desk worldToModel ASLtoAGL getPosASL _npc) select 2;
-
-			// must be done twice for the direction to set properly
-			for "_i" from 1 to 2 do
-			{
-				_npc attachTo
-				[
-					_desk,
-					[
-						0,
-
-						((_bcNPC select 1) - (_bcDesk select 1)) +
-						((_bbNPC select 1 select 1) - (_bcNPC select 1)) -
-						((_bbDesk select 1 select 1) - (_bcDesk select 1)) + 0.1,
-
-						_npcHeightRel
-					]
-				];
-				_npc setDir 180;
-			};
-
-			detach _npc;
-			sleep 1;
-
+			_npc setDir _deskDirMod;
 			_npc enableSimulation false;
-			_desk enableSimulationGlobal false;
+
+			_desk = [_npc, getPosASL _npc, _pDir, _deskDirMod] call _createStoreFurniture;
+			_npc setVariable ["storeNPC_cashDesk", netId _desk, true];
 		};
 	} forEach (call storeOwnerConfig);
 };
@@ -299,7 +272,7 @@ if (hasInterface) then
 				for "_i" from 1 to 2 do
 				{
 					_sellBox setVelocity [0,0,0];
-					_sellBox setVectorDirAndUp [[vectorDir _desk, -90] call BIS_fnc_rotateVector2D, [0,0,1]];
+					_sellBox setVectorDirAndUp [[vectorDir _desk, -90] call BIS_fnc_rotateVector2D, vectorUp _desk];
 					_sellBox setPosASL _deskOffset;
 					_boxPos = getPos _sellBox;
 

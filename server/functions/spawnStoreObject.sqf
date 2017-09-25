@@ -27,6 +27,7 @@ if (_key != "" && isPlayer _player && {_isGenStore || _isGunStore || _isVehStore
 {
 	_timeoutKey = _key + "_timeout";
 	_objectID = "";
+	private _seaSpawn = false;
 	private _playerGroup = group _player;
 	_playerSide = side _playerGroup;
 
@@ -74,6 +75,7 @@ if (_key != "" && isPlayer _player && {_isGenStore || _isGunStore || _isVehStore
 			{
 				_itemEntry = _results select 0;
 				_marker = _marker + "_seaSpawn";
+				_seaSpawn = true;
 			};
 		};
 
@@ -119,26 +121,48 @@ if (_key != "" && isPlayer _player && {_isGenStore || _isGunStore || _isVehStore
 		if (_player getVariable ["cmoney", 0] >= _itemPrice) then
 		{
 			private _markerPos = markerPos _marker;
-			private _seaSpawn = (_marker find "_seaSpawn" != -1);
-			private _waterNonBoat = false;
+			private _npcPos = getPosASL _storeNPC;
 			private _canFloat = (round getNumber (configFile >> "CfgVehicles" >> _class >> "canFloat") > 0);
+			private _waterNonBoat = false;
+			private "_spawnPosAGL";
 
 			// non-boat spawn over water (e.g. aircraft carrier)
-			if (!isNull _storeNPC && surfaceIsWater getPosASL _storeNPC && !_seaSpawn) then
+			if (!isNull _storeNPC && surfaceIsWater _npcPos && !_seaSpawn) then
 			{
-				_markerPos set [2, (getPosASL _storeNPC) select 2];
-				_safePos = [ASLtoATL _markerPos, _markerPos] select _canFloat;
+				_markerPos set [2, _npcPos select 2];
+				_spawnPosAGL = ASLtoAGL _markerPos;
+				_safePos = if (_canFloat) then { _spawnPosAGL } else { ASLtoATL _markerPos };
 				_waterNonBoat = true;
 			}
 			else // normal spawn
 			{
 				_safePos = _markerPos findEmptyPosition [0, 50, _class];
 				if (count _safePos == 0) then { _safePos = _markerPos };
+				_spawnPosAGL = _safePos;
 			};
+
+			// delete wrecks near spawn
+			{
+				if (!alive _x) then
+				{
+					deleteVehicle _x;
+				};
+			} forEach nearestObjects [_spawnPosAGL, ["LandVehicle","Air","Ship"], 25 max sizeOf _class];
 
 			if (_player getVariable [_timeoutKey, true]) then { breakOut "spawnStoreObject" }; // Timeout
 
 			_object = createVehicle [_class, _safePos, [], 0, ""];
+
+			if (_waterNonBoat) then
+			{
+				private _posSurf = getPos _object;
+				private _posASL = getPosASL _object;
+
+				if (_posSurf select 2 < 0) then
+				{
+					_object setPosASL [_posSurf select 0, _posSurf select 1, (_posASL select 2) - (_posSurf select 2) + 0.05];
+				};
+			};
 
 			if (_player getVariable [_timeoutKey, true]) then // Timeout
 			{
@@ -190,7 +214,7 @@ if (_key != "" && isPlayer _player && {_isGenStore || _isGunStore || _isVehStore
 
 			if (_object isKindOf "AllVehicles" && !(_object isKindOf "StaticWeapon")) then
 			{
-				if (!_waterNonBoat && !_seaSpawn) then
+				if (!surfaceIsWater _safePos) then
 				{
 					_object setPosATL [_safePos select 0, _safePos select 1, 0.05];
 				};
@@ -207,14 +231,51 @@ if (_key != "" && isPlayer _player && {_isGenStore || _isGunStore || _isVehStore
 
 			_object setDir (if (_object isKindOf "Plane") then { markerDir _marker } else { random 360 });
 
-			_isDamageable = !(_object isKindOf "ReammoBox_F"); // ({_object isKindOf _x} count ["AllVehicles", "Lamps_base_F", "Cargo_Patrol_base_F", "Cargo_Tower_base_F"] > 0);
+            //WHITELIST: AllowDamage FALSE for all Crates, Buildings, Walls, Shelters, Lamps(unable to shoot out as a player :/ But better as fallen lamps)... Not for cars, and other small things like a drill, monitor...
+			_isDamageable = !({_object isKindOf _x} count ["Building", "Constructions_base_F", "TargetBase", "ReammoBox_F"] > 0);
+            //BLACKLIST: AllowDamage TRUE for towers, generator(Base Locker), Statics(Not necessarry, as not part of "Building")... Not for Tent(Spawn Beacon), as this will not spawn, just an item in the inventory
+            if ({_object isKindOf _x} count ["Cargo_Patrol_base_F", "Cargo_Tower_base_F", "Land_AirConditioner_01_F"] > 0) then 
+            {
+                _isDamageable = true;
+            };
 
 			[_object] call vehicleSetup;
 			_object allowDamage _isDamageable;
 			_object setVariable ["allowDamage", _isDamageable, true];
+            
+            //Set Simulation Global to FALSE for all Crates, Buildings, Walls, Shelters, Lamps... NOT for Pop-Up Targets!
+            // if ({_object isKindOf _x} count ["Building", "Constructions_base_F", "ReammoBox_F"] > 0) then 
+            // {
+                // [_object, false] call fn_enableSimulationGlobal;
+            // };
+            //REMOVED DUE TO PROBLEMS WITH NETWORK SYNC BETWEEN CLIENTS :/
 
 			clearBackpackCargoGlobal _object;
-
+			
+			// this switch is only there at aj mission - removed in vanilla a3w
+			switch (true) do
+			{				
+				case (_object isKindOf "FlagPole_F"):
+				{
+					_object setFlagTexture "image/out.jpg";
+				};
+                
+                case (_object isKindOf "Land_Sacks_goods_F"):
+				{
+					_object setVariable ["food",50, true];
+				};
+				
+                case (_object isKindOf "Land_BarrelWater_F"):
+				{
+					_object setVariable ["water",50, true];
+				};
+                
+				// Add default password to baselocker, safe and doorlocks.
+				case ({_object isKindOf _x} count ["Land_DataTerminal_01_F", "Land_AirConditioner_01_F", "Box_IDAP_Equip_F"] > 0):
+				{
+					_object setVariable ["password", "0000", true];
+				};	
+			};
 			// don't need this anymore at all
 			/*switch (true) do
 			{

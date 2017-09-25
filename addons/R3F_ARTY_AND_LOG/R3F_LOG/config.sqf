@@ -9,6 +9,7 @@ R3F_LOG_CFG_remorqueurs =
 	"Offroad_01_base_F",
 	"Offroad_02_base_F",
 	"Van_01_base_F",
+	"Van_02_base_F",
 	"LSV_01_base_F",
 	"LSV_02_base_F",
 	"MRAP_01_base_F",
@@ -150,6 +151,7 @@ R3F_LOG_CFG_transporteurs =
 	["Offroad_01_base_F", 30],
 	["Offroad_02_base_F", 20],
 	["Van_01_base_F", 40],
+	["Van_02_base_F", 50],
 	["LSV_01_base_F", 15],
 	["LSV_02_base_F", 15],
 	["MRAP_01_base_F", 20],
@@ -182,6 +184,11 @@ R3F_LOG_CFG_transporteurs =
 
 R3F_LOG_CFG_objets_transportables =
 [
+	["Land_AirConditioner_01_F", 5],           //Re Locker
+	["Land_Mil_WallBig_4m_F", 1],           //Base Door (Pillbox)
+    ["Land_Canal_Wall_10m_F", 15],              //Base Door (Canal Wall)
+    ["Land_DataTerminal_01_F", 1],      //Base Door Key
+	["Box_IDAP_Equip_F", 10],                    //Safe
 	["Static_Designator_01_base_F", 2],
 	["Static_Designator_02_base_F", 2],
 	["StaticWeapon", 5],
@@ -192,6 +199,7 @@ R3F_LOG_CFG_objets_transportables =
 	["Quadbike_01_base_F", 10],
 	["Rubber_duck_base_F", 10],
 	["UAV_01_base_F", 2],
+	["UAV_06_base_F", 2],
 	["Land_PierLadder_F", 3],
 	["Land_BagBunker_Large_F", 10],
 	["Land_BagBunker_Small_F", 5],
@@ -246,6 +254,10 @@ R3F_LOG_CFG_objets_transportables =
 
 R3F_LOG_CFG_objets_deplacables =
 [
+	"Land_AirConditioner_01_F", //relocker
+	"Land_Mil_WallBig_4m_F",         //Base Door
+    "Land_DataTerminal_01_F",   //Base Door Key
+	"Box_IDAP_Equip_F",
 	"B_supplyCrate_F",
 	"Box_NATO_Wps_F",
 	"Box_NATO_WpsSpecial_F",
@@ -262,6 +274,7 @@ R3F_LOG_CFG_objets_deplacables =
 	"Rubber_duck_base_F",
 	"SDV_01_base_F",
 	"UAV_01_base_F",
+	"UAV_06_base_F",
 	"Land_PierLadder_F",
 	"Land_BagBunker_Large_F",
 	"Land_BagBunker_Small_F",

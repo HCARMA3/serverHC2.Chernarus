@@ -2,7 +2,7 @@
 //	@file Name: HvT.sqf
 //	@file Author: Cael817, CRE4MPIE, LouD, AgentRev
 
-#define HVT_AMOUNT 67500  // how much a player needs to be carrying to become a HvT
+#define HVT_AMOUNT 149999  // how much a player needs to be carrying to become a HvT
 #define HINT_DELAY 60  // number of seconds between each HvT reminder hint
 #define MARKER_REFRESH 30  // number of seconds between each HvT marker refresh
 
@@ -27,9 +27,9 @@ while {true} do
 	if (_isHvT && diag_tickTime - _lastHint >= HINT_DELAY) then
 	{
 		hint parseText ([
-			"<t color='#FF0000' size='1.5' align='center'>High Value Target</t>",
+			"<t color='#FF0000' size='1.5' align='center'>Alvo de alto valor</t>",
 			//profileName,
-			"<t color='#FFFFFF' shadow='1' shadowColor='#000000' align='center'>Someone has spotted you carrying a large sum of money and has marked your location on the map!</t>"
+			"<t color='#FFFFFF' shadow='1' shadowColor='#000000' align='center'>Alguém foi avistado carregando uma grande quantia de dinheiro e foi marcado no mapa sua localização!</t>"
 		] joinString "<br/>");
 
 		_lastHint = diag_tickTime;

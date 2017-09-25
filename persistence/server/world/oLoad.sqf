@@ -112,6 +112,12 @@ _exclObjectIDs = [];
 				};
 				case "side": { _value = _value call _strToSide };
 				case "R3F_Side": { _value = _value call _strToSide };
+				case "lockDown": { _value }; // BASE LOCKER
+				case "Lights": { _value }; // BASE LOCKER
+				case "password": { _value }; // BASE LOCKER - SAFE - DOOR
+				case "lockedSafe": { _value }; // SAFE
+				case "A3W_inventoryLockR3F": { _value }; // SAFE
+				case "R3F_LOG_disabled": { _value }; // SAFE
 				case "ownerName":
 				{
 					switch (typeName _value) do
@@ -132,6 +138,12 @@ _exclObjectIDs = [];
 			_obj setVariable [_var, _value, true];
 		} forEach _variables;
 
+		// Base locker lights
+		if (_obj getVariable ["lights",""] == "off") then
+		{
+			_obj setHit ["light_1_hit", 0.97];
+		};
+		
 		clearWeaponCargoGlobal _obj;
 		clearMagazineCargoGlobal _obj;
 		clearItemCargoGlobal _obj;
@@ -175,7 +187,7 @@ _exclObjectIDs = [];
 					{
 						_bpack = _x select 0;
 
-						if (!(_bpack isKindOf "Weapon_Bag_Base") || {{_bpack isKindOf _x} count ["B_UAV_01_backpack_F", "B_Static_Designator_01_weapon_F", "O_Static_Designator_02_weapon_F"] > 0}) then
+						if (!(_bpack isKindOf "Weapon_Bag_Base") || {[["_UAV_","_Designator_"], _bpack] call fn_findString != -1}) then
 						{
 							_obj addBackpackCargoGlobal _x;
 						};

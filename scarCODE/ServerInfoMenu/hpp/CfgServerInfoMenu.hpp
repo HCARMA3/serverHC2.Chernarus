@@ -8,7 +8,7 @@ class CfgServerInfoMenu
    openKey = "User7"; // https://community.bistudio.com/wiki/inputAction/actions
    openAtLogin = no;
    restart = 4; // Amount of hours before server automatically restarts
-   serverName = "HC Corp A3Wasteland Altis";
+   serverName = "HC Corp A3Wasteland Chernarus";
    class menuItems
    {
       // title AND content accept formatted text ( since update Oct5.2016 )
@@ -17,7 +17,7 @@ class CfgServerInfoMenu
          menuName = "Rules";
          title = "Regras do servidor|Server rules";
          content[] = {
-            "<t size='1.70'>Regras do servidor A3Wasteland Altis <t color='#b8870a'>HC Corp</t>|<t color='#b8870a'>HC Corp</t> A3Wasteland Altis server rules</t><br />",
+            "<t size='1.70'>Regras do servidor A3Wasteland Chernarus <t color='#b8870a'>HC Corp</t>|<t color='#b8870a'>HC Corp</t> A3Wasteland Chernarus server rules</t><br />",
             "1. É proibido o uso de cheats, exploits e/ou hacks. Penalidade: <t color='#ff0000'>banimento</t><br />",
             "1. Using cheats, exploits and/or hacks is forbidden. Penalty: <t color='#ff0000'>ban</t><br />",
             "2. Seja educado. Respeite o servidor, os administradores, os membros da HC Corp e todos os outros jogadores. Penalidades: primeira ofensa; aviso; ofensas seguintes; <t color='#ff0000'>banimento</t><br />",

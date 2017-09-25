@@ -20,6 +20,7 @@ onKeyRelease = "client\clientEvents\onKeyRelease.sqf" call mf_compile;
 A3W_fnc_copilotTakeControl = "client\functions\copilotTakeControl.sqf" call mf_compile;
 A3W_fnc_inGameUIActionEvent = "client\functions\fn_inGameUIActionEvent.sqf" call mf_compile;
 A3W_fnc_forceOpenParachute = "client\functions\fn_forceOpenParachute.sqf" call mf_compile;
+A3W_fnc_killFeedMenu = "client\systems\killFeed\killFeedMenu.sqf" call mf_compile;
 A3W_fnc_openParachute = "client\functions\fn_openParachute.sqf" call mf_compile;
 A3W_fnc_titleTextMessage = "client\functions\titleTextMessage.sqf" call mf_compile;
 addWeaponInventory = "client\functions\addWeaponInventory.sqf" call mf_compile;
@@ -42,6 +43,7 @@ fn_forceSaveObject = "client\functions\fn_forceSaveObject.sqf" call mf_compile;
 fn_forceSaveVehicle = "client\functions\fn_forceSaveVehicle.sqf" call mf_compile;
 fn_formatTimer = "client\functions\fn_formatTimer.sqf" call mf_compile;
 fn_getItemArmor = "client\functions\fn_getItemArmor.sqf" call mf_compile;
+fn_killFeedRefresh = "client\systems\killFeed\fn_killFeedRefresh.sqf" call mf_compile;
 fn_removeAllManagedActions = "client\functions\fn_removeAllManagedActions.sqf" call mf_compile;
 fn_removeManagedAction = "client\functions\fn_removeManagedAction.sqf" call mf_compile;
 //fn_voiceChatControl = "client\functions\fn_voiceChatControl.sqf" call mf_compile;
@@ -66,6 +68,12 @@ weaponDisassembledEvent = "client\functions\weaponDisassembledEvent.sqf" call mf
 
 deleteBeacon = "client\items\beacon\deleteBeacon.sqf" call mf_compile;
 applyPlayerTexture = "client\functions\applyPlayerTexture.sqf" call mf_compile; // Added for persistent uniform textures
+
+//aj config
+fn_cameracheck = "addons\cameracheck\cameracheck.sqf" call mf_compile;
+fn_checkBaseLock = "addons\aj\antiglitch\fn_aj_c_checkbaselock.sqf" call mf_compile;
+fnc_safe_vehicle_exit = "addons\aj\antiglitch\fn_aj_c_safe_vehicle_exit.sqf" call mf_compile;
+fnc_markBaselockers = "addons\aj\fnc_aj_c_markBaselockers.sqf" call mf_compile;
 
 // Player details and actions
 loadPlayerMenu = "client\systems\playerMenu\init.sqf" call mf_compile;
@@ -112,7 +120,7 @@ populateVehicleStore = "client\systems\vehicleStore\populateVehicleStore.sqf" ca
 requestStoreObject = "client\functions\requestStoreObject.sqf" call mf_compile;
 vehicleInfo = "client\systems\vehicleStore\vehicleInfo.sqf" call mf_compile;
 weaponInfo = "client\systems\gunStore\weaponInfo.sqf" call mf_compile;
-//loadTOParmaInfo = "addons\TOParmaInfo\loadTOParmaInfo.sqf" call mf_compile;
+loadTOParmaInfo = "addons\TOParmaInfo\loadTOParmaInfo.sqf" call mf_compile;
 
 if (isNil "A3W_fnc_MP") then { A3W_fnc_MP = compile preprocessFileLineNumbers "\A3\functions_f\MP\fn_MP.sqf" };
 if (isNil "A3W_fnc_MPexec") then { A3W_fnc_MPexec = compile preprocessFileLineNumbers "\A3\functions_f\MP\fn_MPexec.sqf" };
