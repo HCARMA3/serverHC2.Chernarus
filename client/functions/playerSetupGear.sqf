@@ -25,7 +25,7 @@ sleep 0.1;
 _player linkItem "ItemGPS";
 
 // Remove Radio
-_player unlinkItem "ItemRadio";
+_player linkItem "ItemRadio";
 
 // Remove NVG
 if (hmd _player != "") then { _player unlinkItem hmd _player };

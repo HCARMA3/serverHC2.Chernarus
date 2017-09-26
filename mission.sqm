@@ -8,22 +8,22 @@ class EditorData
 	toggles=10;
 	class ItemIDProvider
 	{
-		nextID=1145;
+		nextID=1153;
 	};
 	class MarkerIDProvider
 	{
-		nextID=1;
+		nextID=6;
 	};
 	class LayerIndexProvider
 	{
-		nextID=8;
+		nextID=12;
 	};
 	class Camera
 	{
-		pos[]={12936.112,419.96408,7656.3013};
-		dir[]={0.56055546,-0.24170811,0.79211801};
-		up[]={0.1396337,0.97034287,0.19731405};
-		aside[]={0.81631649,-4.4191256e-007,-0.57767969};
+		pos[]={4873.2969,339.20001,9659.9131};
+		dir[]={0,-0.70710683,0.70710683};
+		up[]={0,0.70710677,0.70710677};
+		aside[]={0.99999994,0,-0};
 	};
 };
 binarizationWanted=0;
@@ -499,7 +499,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=927;
+		items=935;
 		class Item0
 		{
 			dataType="Group";
@@ -4676,7 +4676,7 @@ class Mission
 			colorName="ColorGUER";
 			angle=246.56616;
 			id=295;
-			atlOffset=95.91925;
+			atlOffset=95.919464;
 		};
 		class Item148
 		{
@@ -5136,7 +5136,7 @@ class Mission
 			colorName="ColorGUER";
 			angle=241.90857;
 			id=332;
-			atlOffset=247.93076;
+			atlOffset=247.93085;
 		};
 		class Item185
 		{
@@ -27732,7 +27732,7 @@ class Mission
 			name="ForestMission_3";
 			type="Empty";
 			colorName="ColorRed";
-			angle=130.15616;
+			angle=130.1561;
 			id=992;
 			atlOffset=-380.19019;
 		};
@@ -27754,7 +27754,7 @@ class Mission
 			name="ForestMission_5";
 			type="Empty";
 			colorName="ColorRed";
-			angle=28.300894;
+			angle=28.300886;
 			id=994;
 			atlOffset=-380.13025;
 		};
@@ -27776,7 +27776,7 @@ class Mission
 			name="ForestMission_7";
 			type="Empty";
 			colorName="ColorRed";
-			angle=217.47638;
+			angle=217.47632;
 			id=996;
 			atlOffset=-380.04019;
 		};
@@ -27787,7 +27787,7 @@ class Mission
 			name="Airpost_1";
 			type="Empty";
 			colorName="ColorRed";
-			angle=221.30898;
+			angle=221.30893;
 			id=997;
 			atlOffset=-339;
 		};
@@ -27798,7 +27798,7 @@ class Mission
 			name="Airpost_2";
 			type="Empty";
 			colorName="ColorRed";
-			angle=67.306099;
+			angle=67.306084;
 			id=998;
 			atlOffset=-338.98669;
 		};
@@ -27820,7 +27820,7 @@ class Mission
 			name="Gasstation_1";
 			type="Empty";
 			colorName="ColorYellow";
-			angle=85.030251;
+			angle=85.03022;
 			id=1000;
 			atlOffset=-6.0295959;
 		};
@@ -27831,7 +27831,7 @@ class Mission
 			name="Gasstation_2";
 			type="Empty";
 			colorName="ColorYellow";
-			angle=85.030243;
+			angle=85.030212;
 			id=1001;
 			atlOffset=-6.0020108;
 		};
@@ -27842,7 +27842,7 @@ class Mission
 			name="Gasstation_3";
 			type="Empty";
 			colorName="ColorYellow";
-			angle=85.030243;
+			angle=85.030212;
 			id=1002;
 			atlOffset=-6.0213318;
 		};
@@ -27853,7 +27853,7 @@ class Mission
 			name="Gasstation_4";
 			type="Empty";
 			colorName="ColorYellow";
-			angle=85.030243;
+			angle=85.030212;
 			id=1003;
 			atlOffset=-6.0299077;
 		};
@@ -27864,7 +27864,7 @@ class Mission
 			name="Gasstation_5";
 			type="Empty";
 			colorName="ColorYellow";
-			angle=85.030243;
+			angle=85.030212;
 			id=1004;
 			atlOffset=-6.0029211;
 		};
@@ -27919,7 +27919,7 @@ class Mission
 			name="Conqueror_4";
 			type="Empty";
 			colorName="ColorGrey";
-			angle=343.19168;
+			angle=343.19162;
 			id=1009;
 			atlOffset=-9.2733383;
 		};
@@ -27952,7 +27952,7 @@ class Mission
 			name="Conqueror_7";
 			type="Empty";
 			colorName="ColorGrey";
-			angle=56.309853;
+			angle=56.309837;
 			id=1012;
 			atlOffset=-9.2829695;
 		};
@@ -28139,7 +28139,7 @@ class Mission
 			name="Comm_10";
 			type="Empty";
 			colorName="ColorWEST";
-			angle=119.29108;
+			angle=119.29105;
 			id=1029;
 			atlOffset=-311.98767;
 		};
@@ -28150,7 +28150,7 @@ class Mission
 			name="Train_1";
 			type="Empty";
 			colorName="ColorGreen";
-			angle=162.17995;
+			angle=162.17992;
 			id=1030;
 			atlOffset=-5.9897957;
 		};
@@ -28161,7 +28161,7 @@ class Mission
 			name="Train_2";
 			type="Empty";
 			colorName="ColorGreen";
-			angle=133.36516;
+			angle=133.36511;
 			id=1031;
 			atlOffset=-5.9724665;
 		};
@@ -28172,7 +28172,7 @@ class Mission
 			name="Train_3";
 			type="Empty";
 			colorName="ColorGreen";
-			angle=162.17993;
+			angle=162.17992;
 			id=1032;
 			atlOffset=-6.0077972;
 		};
@@ -28183,7 +28183,7 @@ class Mission
 			name="Train_4";
 			type="Empty";
 			colorName="ColorGreen";
-			angle=162.17993;
+			angle=162.17992;
 			id=1033;
 			atlOffset=-5.947113;
 		};
@@ -28194,7 +28194,7 @@ class Mission
 			name="Train_5";
 			type="Empty";
 			colorName="ColorGreen";
-			angle=162.17993;
+			angle=162.17992;
 			id=1034;
 			atlOffset=-5.9444427;
 		};
@@ -28205,7 +28205,7 @@ class Mission
 			name="Train_6";
 			type="Empty";
 			colorName="ColorGreen";
-			angle=162.17993;
+			angle=162.17992;
 			id=1035;
 			atlOffset=-6.0890808;
 		};
@@ -28216,7 +28216,7 @@ class Mission
 			name="Train_7";
 			type="Empty";
 			colorName="ColorGreen";
-			angle=162.17993;
+			angle=162.17992;
 			id=1036;
 			atlOffset=-5.9584656;
 		};
@@ -28227,7 +28227,7 @@ class Mission
 			name="Train_8";
 			type="Empty";
 			colorName="ColorGreen";
-			angle=162.17993;
+			angle=162.17992;
 			id=1037;
 			atlOffset=-5.8843994;
 		};
@@ -28238,7 +28238,7 @@ class Mission
 			name="Train_9";
 			type="Empty";
 			colorName="ColorGreen";
-			angle=162.17993;
+			angle=162.17992;
 			id=1038;
 			atlOffset=-5.9824829;
 		};
@@ -28249,7 +28249,7 @@ class Mission
 			name="Train_10";
 			type="Empty";
 			colorName="ColorGreen";
-			angle=162.17993;
+			angle=162.17992;
 			id=1039;
 			atlOffset=-6.0871582;
 		};
@@ -28260,7 +28260,7 @@ class Mission
 			name="Train_11";
 			type="Empty";
 			colorName="ColorGreen";
-			angle=162.17993;
+			angle=162.17992;
 			id=1040;
 			atlOffset=-5.9304657;
 		};
@@ -28271,7 +28271,7 @@ class Mission
 			name="TheHeist_1";
 			type="Empty";
 			colorName="ColorYellow";
-			angle=51.802456;
+			angle=51.802441;
 			id=1041;
 			atlOffset=-192.54305;
 		};
@@ -28282,7 +28282,7 @@ class Mission
 			name="TheHeist_2";
 			type="Empty";
 			colorName="ColorYellow";
-			angle=51.802452;
+			angle=51.802437;
 			id=1042;
 			atlOffset=-192.60968;
 		};
@@ -28293,7 +28293,7 @@ class Mission
 			name="TheHeist_3";
 			type="Empty";
 			colorName="ColorYellow";
-			angle=51.802452;
+			angle=51.802437;
 			id=1043;
 			atlOffset=-192.54271;
 		};
@@ -28304,7 +28304,7 @@ class Mission
 			name="TheHeist_4";
 			type="Empty";
 			colorName="ColorYellow";
-			angle=51.802452;
+			angle=51.802437;
 			id=1044;
 			atlOffset=-192.53592;
 		};
@@ -28315,7 +28315,7 @@ class Mission
 			name="TheHeist_5";
 			type="Empty";
 			colorName="ColorYellow";
-			angle=51.802452;
+			angle=51.802437;
 			id=1045;
 			atlOffset=-192.54305;
 		};
@@ -28326,7 +28326,7 @@ class Mission
 			name="TheHeist_6";
 			type="Empty";
 			colorName="ColorYellow";
-			angle=51.802452;
+			angle=51.802437;
 			id=1046;
 			atlOffset=-192.54305;
 		};
@@ -28337,7 +28337,7 @@ class Mission
 			name="TheHeist_7";
 			type="Empty";
 			colorName="ColorYellow";
-			angle=51.802452;
+			angle=51.802437;
 			id=1047;
 			atlOffset=-192.50966;
 		};
@@ -28348,7 +28348,7 @@ class Mission
 			name="TheHeist_8";
 			type="Empty";
 			colorName="ColorYellow";
-			angle=51.802452;
+			angle=51.802437;
 			id=1048;
 			atlOffset=-192.54303;
 		};
@@ -28359,7 +28359,7 @@ class Mission
 			name="TheHeist_9";
 			type="Empty";
 			colorName="ColorYellow";
-			angle=51.802452;
+			angle=51.802437;
 			id=1049;
 			atlOffset=-192.56036;
 		};
@@ -28370,7 +28370,7 @@ class Mission
 			name="Race_1";
 			type="Empty";
 			colorName="ColorYellow";
-			angle=288.17093;
+			angle=288.1709;
 			id=1050;
 			atlOffset=-159;
 		};
@@ -28381,7 +28381,7 @@ class Mission
 			name="Race_2";
 			type="Empty";
 			colorName="ColorYellow";
-			angle=108.43586;
+			angle=108.43583;
 			id=1051;
 			atlOffset=-159.01999;
 		};
@@ -28391,21 +28391,21 @@ class Mission
 			position[]={5224.874,0,2221.9519};
 			name="Dropoff_1";
 			type="Empty";
-			colorName="ColorYellow";
-			angle=288.17093;
+			colorName="ColorRed";
+			angle=288.1709;
 			id=1052;
 			atlOffset=-9.06499;
 		};
 		class Item882
 		{
 			dataType="Marker";
-			position[]={4873.2969,329.935,9684.9131};
+			position[]={4873.2969,0,9684.9131};
 			name="Dropoff_2";
 			type="Empty";
-			colorName="ColorYellow";
-			angle=330.33325;
+			colorName="ColorRed";
+			angle=330.33292;
 			id=1053;
-			atlOffset=-9.0650024;
+			atlOffset=-339;
 		};
 		class Item883
 		{
@@ -29083,7 +29083,7 @@ class Mission
 					};
 					id=1093;
 					type="Land_Pier_Box_F";
-					atlOffset=8.3485861;
+					atlOffset=8.348587;
 				};
 				class Item37
 				{
@@ -29137,7 +29137,7 @@ class Mission
 					};
 					id=1096;
 					type="Land_Pier_Box_F";
-					atlOffset=3.6550512;
+					atlOffset=3.6550522;
 				};
 				class Item40
 				{
@@ -29351,7 +29351,7 @@ class Mission
 			};
 			id=1107;
 			type="Land_LampShabby_F";
-			atlOffset=0.82443523;
+			atlOffset=0.824435;
 		};
 		class Item890
 		{
@@ -29402,7 +29402,7 @@ class Mission
 			};
 			id=1110;
 			type="Land_LampShabby_F";
-			atlOffset=4.2155871;
+			atlOffset=4.2155867;
 		};
 		class Item893
 		{
@@ -30016,6 +30016,93 @@ class Mission
 				};
 				nAttributes=1;
 			};
+		};
+		class Item927
+		{
+			dataType="Marker";
+			position[]={6559.8174,6,2457.616};
+			name="Race_3";
+			type="Empty";
+			colorName="ColorYellow";
+			angle=112.07272;
+			id=1145;
+			atlOffset=-0.62819481;
+		};
+		class Item928
+		{
+			dataType="Marker";
+			position[]={13379.3,93.521118,12839.146};
+			name="Race_4";
+			type="Empty";
+			colorName="ColorYellow";
+			angle=291.80322;
+			id=1146;
+		};
+		class Item929
+		{
+			dataType="Marker";
+			position[]={1328.319,0,13374.767};
+			name="Dropoff_3";
+			type="Empty";
+			colorName="ColorRed";
+			angle=40.155983;
+			id=1147;
+			atlOffset=-331;
+		};
+		class Item930
+		{
+			dataType="Marker";
+			position[]={8124.792,0,9298.6113};
+			name="Dropoff_4";
+			type="Empty";
+			colorName="ColorRed";
+			angle=339.90491;
+			id=1148;
+			atlOffset=-468.89066;
+		};
+		class Item931
+		{
+			dataType="Marker";
+			position[]={1328.317,0,13374.797};
+			name="marker_1";
+			text="Hijack! Drop Off - possible location!";
+			type="mil_dot";
+			colorName="ColorGreen";
+			id=1149;
+			atlOffset=-331;
+		};
+		class Item932
+		{
+			dataType="Marker";
+			position[]={8124.7808,0,9298.6318};
+			name="marker_3";
+			text="Hijack! Drop Off - possible location!";
+			type="mil_dot";
+			colorName="ColorGreen";
+			id=1150;
+			atlOffset=-468.89224;
+		};
+		class Item933
+		{
+			dataType="Marker";
+			position[]={4873.3442,0,9684.7188};
+			name="marker_4";
+			text="¡Avion del Escobar! -  ¡posible lugar de entrada!";
+			type="mil_dot";
+			colorName="ColorGreen";
+			id=1151;
+			atlOffset=-339;
+		};
+		class Item934
+		{
+			dataType="Marker";
+			position[]={5225,0,2221.9021};
+			name="marker_5";
+			text="¡Avion del Escobar! -  ¡posible lugar de entrada!";
+			type="mil_dot";
+			colorName="ColorGreen";
+			id=1152;
+			atlOffset=-9.0666685;
 		};
 	};
 };
